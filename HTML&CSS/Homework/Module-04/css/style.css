@@ -1,0 +1,154 @@
+@font-face{
+    font-family: OpenSans-Regular;
+    src: url(../fonts/OpenSans-Regular.ttf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'OpenSans-Regular', sans-serif;
+}
+
+.header{
+    margin: auto;
+    display: flex;
+    width: 1110px;
+}
+.logo{
+    margin: 20px 1px; 
+    width: 78px;
+    height: 21px;
+}
+.menu{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 656px;
+    height: 21px;
+    margin-left: 338px;
+    margin-top: 20px;
+    margin-bottom: 85px;
+}
+ol.menu{
+    text-transform: uppercase;
+}
+.l-menu:hover{
+    color:#1abc9c;
+}
+h1{
+    width: 300px;
+    margin-left: 450px;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 70px;
+}
+.main{
+    width: 1110px;
+    margin: 0 auto;
+}
+.first-ul{
+    margin-bottom: 60px;
+    padding-left: 0;
+    width: 1110px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.first-li:hover .name-goods{
+    background-color: #1abc9c;
+}
+.first-li:hover .price{
+    background-color: #75ddc8;
+}
+.first-li{
+    font-size: 15px;
+    text-transform: uppercase;
+}
+h2{
+    width: 300px;
+    margin-left: 450px;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-bottom: 70px; 
+}
+h2:after{
+    display:block;
+    width: 100px;
+    height: 5px;
+    content: "";
+    background-color: #1abc9c;
+    margin: 7px 0 1px 19px;
+    border-radius: 50%;
+}
+
+.block1{
+    width: 350px;
+}
+.block2{
+    width: 350px;
+}
+.block3{
+    width: 350px;
+}
+.flooter{
+    margin: 0 auto;
+    width: 1110px;
+    display: flex;
+    justify-content: space-between;
+}
+.name-goods{
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    width: 250px;
+    color: white;
+    text-align: center;
+    padding: 0px 0px 0px 5px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.price{
+    width: 29px;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+.goods{
+    display: block;
+}
+img{
+    display: block;
+}
+h1:after{
+    display:block;
+    width: 200px;
+    height: 5px;
+    content: "";
+    background-color: #1abc9c;
+    margin: 7px 0 1px 19px;
+    border-radius: 50%;
+}
+.upic::after{
+    display: block;
+    width: 100px;
+    height: 3px;
+    content: "";
+    background-color: #1abc9c;
+    margin: 5px 0 16px 0;
+}
+.textpic{
+    margin-bottom: 10px;
+}
+.button{
+    background-color: #1abc9c;
+    width: 160px;
+    height: 50px;
+    color: white;
+    font-size: 20px; 
+    margin-bottom: 20px;
+}
+.upic{
+    font-size: 20px;
+}

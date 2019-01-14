@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:700');
+*{
+    padding: 0;
+    margin: 0;
+}
+.header{
+    margin: 0 auto;
+    width: 874px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 55px;
+    margin-bottom: 127px;
+}
+.menu{
+    width: 485px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+}
+.title{
+    width: 296px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 96px;
+}
+.service{
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    margin-bottom: 19px;
+}
+.text-top{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #a2a2a2;
+    margin: 0 auto;
+}
+.property{
+    width: 934px;
+    display: flex;
+    margin: 0 auto;
+    margin-bottom: 120px;
+}
+.middle{
+    width: 934px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    list-style: none;
+}
+.box1, .box2, .box3{
+    width: 274px;
+    text-align: center;
+}
+.box1::before{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/1.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    margin-bottom: 42px;
+}
+.box2::before{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/2.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    margin-bottom: 42px;
+}
+.box3::before{
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    background-image: url("../img/3.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    margin-bottom: 42px;
+}
+.name{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+.text-middle{
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #c7c7c7;
+    line-height: 1.5;
+}
+.h-bottom{
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: #ffffff;
+    padding-top: 107px;
+    text-align: center;
+    margin-bottom: 23px;
+}
+.p-bottom{
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    font-style: italic;
+    color: #454545;
+    text-align: center;
+    margin-bottom: 75px;
+}
+.adress{
+    background-image: url("../img/world-map.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.intext{
+    width: 460px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.textar{
+    width: 460px;
+    padding: 10px;
+    margin: 14px;
+}
+.subject{
+    width: 457px;
+    margin-top: 12px;
+}
+.forma{
+    margin: 0 auto;
+    width: 945px;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+
+.button{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 142px;
+    border: none;
+    background-color: #fed136;
+    padding: 25px 47px;
+    margin: 0 auto;
+    margin-top: 14px;
+    margin-bottom: 142px;
+}
+.top-menu{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: #222222;
+}
+.top-menu:hover{
+    color: #fed75e;
+}
+.textar:invalid{
+    outline: 2px solid red;
+}
+.textar:valid{
+    outline: 2px solid green;
+}

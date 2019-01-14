@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.main{
+    width: 1200px;
+    margin: 0 150px;
+
+}
+.header{
+    list-style: none;
+    width: 563px;
+    margin-left: 313px;
+    padding-top:77px;
+    padding-bottom: 103px;
+    letter-spacing: -1px;
+    font-size: 14px;
+}
+.header-text1{
+    display: inline; 
+    text-transform: uppercase;
+}
+.header-text2{
+    display: inline; 
+    margin-left: 121px;
+    text-transform: uppercase;
+    
+}
+.header-text3{
+    display: inline;
+    margin-left: 103px;
+    text-transform: uppercase;
+}
+.header-text4{
+    display: inline;
+    margin-left: 95px;
+    text-transform: uppercase;
+}
+.lifestyle{
+    width: 420px;
+    display: inline-block;
+    margin-left: 115px;
+    margin-bottom: 136px;
+}
+.lifestyle-right{
+width: 419px;
+display: inline-block;
+margin-left: 60px;
+float: left;
+
+}
+.photodiary{
+    width: 422px;
+    display: inline-block;
+    margin-left: 115px;
+}
+.photodiary-right{
+    width: 419px;
+    display: inline-block;
+    margin-left: 60px;
+    margin-bottom: 54px;
+}
+.pic1{
+    width: 420px;
+    height: 280px;
+    margin-bottom: 32px;
+}
+.pic2{
+    width: 420px;
+    height: 280px;
+    margin-bottom: 32px;
+}
+.pic3{
+    width: 420px;
+    height: 280px;
+    margin-bottom: 32px;
+}
+.pic4{
+    width: 420px;
+    height: 280px;
+    margin-bottom: 32px;
+}
+.par{
+    margin-bottom: 28px;
+}
+h2{
+    margin-bottom: 39px;
+}
+.btn{
+    text-transform: uppercase;
+    font-size: 20px;
+    margin: 15px auto;
+    display: block;
+    padding: 20px;
+    background-color: rgb(248, 240, 240);
+
+}

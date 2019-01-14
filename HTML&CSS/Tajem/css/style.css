@@ -1,0 +1,229 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    background-image: url("../img/head.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color:#ffffff;
+    padding-bottom: 70px;
+}
+.header, .slider{
+    width: 940px;
+    margin: auto;
+}
+.header, .menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.header{
+    padding-top: 15px;
+}
+.menu{
+    font-family: Roboto;
+    font-weight: 800;
+    width: 526px;
+    color: #ffffff;
+    list-style: none;
+    text-transform: uppercase;
+}
+.menu-item:hover{
+    color: #00e0d0;
+}
+.slider{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.slider-title{
+    margin-top: 183px;
+}
+.slider-title::after{
+    content: "" ;
+    width: 50px;
+    display: block;
+    height: 1px;
+    background-color: #00e0d0;
+    margin: 21px auto 0;
+}
+.slider-text{
+    width: 770px;
+    text-align: center;
+    margin-top: 30px;
+}
+.more{
+    text-decoration: none;
+    color: #00e0d0;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 15px;
+    border: 1px solid #00e0d0;
+    margin-top: 50px;
+}
+.more:hover{
+    color: white;
+    background-color: #00e0d0;
+}
+.dots{
+    margin-top: 127px;
+}
+.our-story{
+    padding: 70px 0;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 873px;
+}
+.story-text{
+    width: 538px;
+    margin-top: 28px;
+}
+.title{
+    text-transform: uppercase;
+}
+.story-logo{
+    width: 229px;
+    height: 235px;
+}
+.our-story .more{
+    margin-top: 32px;
+}
+.player{
+    background-image: url("../img/bg2.png");
+    padding: 202px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.player-button{
+    background-image: url("../img/Composed-layer@1X.png");
+    width: 100px;
+    height: 100px;
+    border: none;
+    background-color: transparent;
+}
+.player-text{
+    margin-top: 34px;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.expertise{
+    width: 935px;
+    margin: auto;
+    text-align: center;
+}
+.title{
+    padding-top: 71px;
+    text-align: center;
+}
+
+.expertise-block{
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+}
+.expertise-subtitle{
+    padding-top: 16px;
+}
+.block-item{
+    width: 310px;
+    border-right: 1px solid grey;
+    border-bottom: 1px solid grey;
+    padding-bottom: 39px;
+}
+.block-item:nth-child(3n){
+    border-right: none;
+}
+.block-item:nth-last-child(-n+3){
+    border-bottom: none;
+}
+.blocl-item__title{
+    padding: 0 32px;
+    margin-top: 35px;
+    font-size: 14px;
+}
+.block-item__text{
+    padding: 0 32px;
+    margin-top: 35px;
+    font-size: 14px;
+}
+.block-item__img{
+    height: 50px;
+    margin-top: 40px;
+}
+
+.team{
+    background-image: url("../img/bottom-forest.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #ffffff;
+    text-align: center;
+}
+.team-item__img{
+    width: 220px;
+    height: 230px;
+}
+.team-list{
+    display: flex;
+    justify-content: space-between;
+    width: 940px;
+    margin: auto;
+}
+.team-item{
+    list-style: none;
+    border: 1px solid grey;
+    margin-top: 67px;
+}
+.team-item__name{
+    padding-top: 20px;
+}
+.team-item__position{
+    padding-top: 12px;
+    padding-bottom: 28px;
+    font-size: 14px;
+    color: grey;
+}
+.subtitle-white{
+    padding-top: 16px;
+}
+.title-white{
+    padding-top: 71px;
+    text-transform: uppercase;
+}
+.team-text{
+    padding-top: 70px;
+}
+.team, .more{
+    margin-top: 26px;
+    margin-bottom: 69px;
+}
+.our-works{
+    margin: auto;
+
+}
+.title-works{
+    display: flex;
+    justify-content: space-between;
+}
+.works{
+    margin-left: 330px;
+}
+
+.portfolio{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1600px;
+}
+.p-folio__item{
+    width: 240px;
+    height: 200px;
+}   
+

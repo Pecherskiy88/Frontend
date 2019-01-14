@@ -1,0 +1,292 @@
+@media(min-device-pixel-ratio:2){
+    .wrapper{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("../img/Vector\ Smart\ Object@2X.png");
+        background-size: cover;
+    }
+}
+
+/* media rules */
+    @font-face{
+        font-family: 'Montserat';
+        src: url("../fonts/montserrat-v12-latin-700.woff") format("woff"); 
+        src: url("../fonts/montserrat-v12-latin-700.woff2") format("woff2");
+    }
+    @font-face{
+        font-family: 'Roboto';
+        src: url("../fonts/roboto-v18-latin-300.woff") format("woff");
+        src: url("../fonts/roboto-v18-latin-300.woff2")format("woff2");
+    }
+.header{
+    
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.head-logo, .head-menu_item{
+    text-decoration: none;
+    color: inherit;
+}
+.wrapper{
+    padding: 0.6875rem 1rem 0 1rem;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("../img/Vector\ Smart\ Object@1X.png");
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #ffffff;
+    padding-bottom: 8.6875rem;
+    margin-bottom: 21%;
+}
+.head-logo{
+    display: block;
+    font-family: 'Montserat';
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    /* padding-bottom: 2.375rem; */
+    margin-bottom: 12%;
+
+}
+.head-menu_item{
+    font-family: 'Montserat';
+    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 255);
+    
+}
+.head-menu_item:hover{
+    border: 0.0625rem solid #ffffff;
+    border-radius: 1.5625rem;
+    padding: 0.5625rem 1.1875rem;
+}
+.header-title{
+    order: 1;
+    margin: 36% auto 0;
+}
+.head-menu{
+    display: flex;
+    justify-content: center;
+}
+.section1{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+
+}
+.section1_title{
+    max-width: 20rem;
+    font-family: 'Montserat';
+    font-size: 1.75rem;
+    text-transform: uppercase;
+ 
+    margin-bottom: 6%;
+}
+.section1_text{
+    font-family: 'Roboto';
+    font-size: 1.1875rem;
+    margin-bottom: 6%;
+    text-align: center;
+}   
+.section-one_button{
+    font-family: 'Montserat';
+    font-size: 13px;
+    color: #ffffff;
+    border: none;
+    background-color: #ff4e50;
+    border-radius: 1.25rem;
+    padding: 0.8125rem 3.25rem;
+    text-align: center;
+}
+.section2{
+    text-align: center;
+    padding: 0 1rem;
+}
+.section2_lists{
+    list-style: none;
+}
+.section2_photo{
+    border-radius: 50%;
+}
+.face1, .face2, .face3, .face4{
+    margin: 0 auto 6%;
+    position: relative;
+    width: 7.625rem;
+}
+.face1::after{
+    position: absolute;
+    content: "";
+    display: block;
+    background-image: url("../img/tv.png");
+    width: 17px;
+    height: 17px;
+    background-color: #ff4e50;
+    bottom: 0;
+    right: 0;
+    padding: 0.5625rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+.face2::after{
+    position: absolute;
+    content: "";
+    display: block;
+    background-image: url("../img/colb.png");
+    width: 17px;
+    height: 17px;
+    background-color: #ffa507;
+    bottom: 0;
+    right: 0;
+    padding: 0.5625rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+
+.face3::after{
+    position: absolute;
+    content: "";
+    display: block;
+    background-image: url("../img/cofee.png");
+    width: 17px;
+    height: 17px;
+    background-color: #1cd7ad;
+    bottom: 0;
+    right: 0;
+    padding: 0.5625rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+
+.face4::after{
+    position: absolute;
+    content: "";
+    display: block;
+    background-image: url("../img/telegram.png");
+    width: 17px;
+    height: 17px;
+    background-color: #4e73db;
+    bottom: 0;
+    right: 0;
+    padding: 0.5625rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+.section2-title{
+    font-family: 'Montserat';
+    font-size: 1.375rem;
+    margin-bottom: 4.4%;
+}
+.section2_name{
+    font-family: 'Montserat';
+    font-size: 0.875rem;
+    margin-bottom: 5%;
+}
+.section2_comment{
+    font-family: 'Roboto';
+    font-size: 0.875rem;
+    color: #666666;
+    margin-bottom: 8.8%;
+}
+.section2_button{
+    border: 0.125rem solid #ff4e50;
+    color: #ff4e50;
+    font-family: 'Montserat';
+    font-size: 0.875rem;
+    padding: 0.8125rem 4.5625rem;
+    border-radius: 1.875rem;
+    background-color: transparent;
+    margin-bottom: 18%;
+
+}
+
+/* <----> */
+
+
+@media(min-width:768px){
+    .wrapper{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("../img/Vector\ Smart\ Object.png");
+        padding-bottom: 13.125rem;
+        margin-bottom: 9%;
+    }
+    .header-title{
+        order: 0;
+        margin: 0;
+    }
+    .header{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 21%;
+    }
+    .head-logo{
+        margin: 0;
+    }
+    .section1_title{
+        max-width: 34.375rem;
+        font-size: 3.25rem;
+        width: 69%;
+    }
+    .section1_text{
+        font-size: 1.5rem;
+    }
+    .section2_lists{
+        margin: 0 auto;
+        margin-bottom: 5%;
+        width: 60%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+    }
+    .section2_members{
+        width: 46%;
+    }
+}
+
+/* <----> */
+
+@media(min-width:1440px){
+    
+    
+    .wrapper{
+        background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),url("../img/bcg1x.png");
+    }
+    .header{
+        width: 65%;
+        margin: 0 auto 11%;
+    }
+    .section2_lists{
+        width: 60%;
+    }
+    .section2_members{
+        width: 22%;
+    }
+    .section1_title{
+        width: 61%;
+        margin-bottom: 2.7%;
+    }
+    .section1_text{
+        margin-bottom: 2.4%;
+    }
+}
+@media
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (   min--moz-device-pixel-ratio: 2),
+only screen and (     -o-min-device-pixel-ratio: 2/1),
+only screen and (        min-device-pixel-ratio: 2),
+only screen and (                min-resolution: 192dpi),
+only screen and (                min-resolution: 2dppx) 
+and (min-width:1440px) {
+/* CSS правила для retina */
+.wrapper{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../img/bcg2x.png");
+}
+}
