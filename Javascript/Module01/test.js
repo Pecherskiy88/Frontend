@@ -691,7 +691,89 @@
 // }
 
 
+//==============================
 
+//Задачка
+
+
+// 1) Записати варіант користувача в змінну.
+// 2) Создати змінну в яку запишеться варіант компютера.
+// 3) Зрівняти змінну юзера і компютера:
+// 4,0) Якщо змінні однакові тоді нічия (Вивести результат)
+// 4,1) Якщо змінні різні: 
+// 4,1,2) Опрацювати варіанти перемоги юзера (Вивести результат)
+// 4,1,3) Інакше виграв комп. (Вивести результат)
+
+
+
+
+// let userInput = prompt('Камень, Ножницы или Бумага?: ');
+// let compInput = Math.ceil(Math.random()*3);
+
+// if(compInput === 1){
+//     compInput = 'Камень';
+// }else if(compInput === 2){
+//     compInput = 'Ножницы';
+// }else{
+//     compInput = 'Бумага';
+// }
+
+// if(compInput === userInput){
+//     alert('Ничья');
+// }else if(compInput === 'Камень' && userInput === 'Ножницы'
+//     || compInput === 'Бумага' && userInput === 'Камень' 
+//     || compInput === 'Ножницы' && userInput === 'Бумага'
+// ) 
+// {
+//     alert('Компьютер WIN!');
+// }else{
+//     alert('ТЫ победил!!!!')
+// }
+
+
+// console.log(userInput);
+
+// console.log(compInput);
+// можно сделать еще проверки
+
+
+//==============================
+
+// const userCurrency = prompt('Какая у вас валюта: доллар, евро, гривна ?');
+// let userSumm = prompt('Какая у вас сумма?');
+// let userExchange = prompt('На какую валюту обменять: доллар, евро, гривна ?');
+// let result;
+
+// if(userCurrency !==null && userSumm !==null && userExchange !== null){
+    
+//     if(userCurrency === 'доллар' && userExchange === 'гривна'){
+//         result = (userSumm * 28)
+//         alert(`${result} гривен`);
+//     }else if(userCurrency === 'доллар' && userExchange === 'евро'){
+//         result = (userSumm * 0.87)
+//         alert(`${result} евро`);
+//     }else if(userCurrency === 'гривна' && userExchange === 'доллар'){
+//         result = (userSumm / 28 );
+//         alert(`${result} долларов`);
+//     }else if(userCurrency === 'гривна' && userExchange === 'евро'){
+//         result = (userSumm / 30 );
+//         alert(`${result} евро`);
+//     }else if(userCurrency === 'евро' && userExchange === 'доллар'){
+//         result = (userSumm * 1.15 ); 
+//         alert(`${result} долларов`);
+//     }else if(userCurrency === 'евро' && userExchange === 'гривна'){
+//             result = (userSumm * 30 )
+//             alert(`${result} гривен`);
+//     }
+
+
+
+// }else{
+//     alert('Приходите еще!');
+// }
+
+
+//==============================
 
 
 

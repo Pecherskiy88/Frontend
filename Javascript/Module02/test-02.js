@@ -731,17 +731,156 @@
 
 //==============
 
+// Является ли строка палиндромом
+
+// let userInput = prompt('Введи строку палиндром');
+
+// let arr = userInput.split('');
+
+// let revArr = arr.reverse();
+
+// revArr = revArr.join('');
+
+// if(userInput === revArr){
+//     alert('Строка является палиндромом');
+// }else{
+//     alert('строка НЕ полиндром');
+// }
+
+//==============================
+
+// Пользователь вводит числа, вы должны сделать соответственное число массивов с элементами внутри массива
+// const userMainArr = Number(prompt('Введи кол-во массивов в главном массиве: '));
+// const userInputEl = Number(prompt('Введи кол-во элементов во вложенные массивах: '));
+
+// let result = [];
+// for (let i = 0;  i < userMainArr; i ++){
+//     let mainArr = [];
+    
+    
+
+//     for(let j = 0; j < userInputEl; j ++) {
+//         mainArr.push(j)
+//     }
+//    result.push(mainArr);
+   
+    
+// }
+// console.log(result);
+
+//==============================
+
+// Разбить кол-во человек на команды, рандомно. По запросу рандомно.
+
+// 1) Пользователь вводит количество команд
+// 2) Пользователь вводит количество людей в команде
+// 3) Программа рандомно наполняет масивы именами
+// 4) Имена не должны повторятся
+
+// let namesArr = ['Albert','Isaac', 'Galileo', 'Marie', 'Johannes', 'Nicolaus', 'Max', 'Katherine', 'Ada', 'Sarah', 'Lise','Hanna'];
+
+// let copyArr = namesArr.slice();
+
+// const userTeams = Number(prompt('У нас 12 человек, сколько команд хочешь? '));
+// const userPeople = Number(prompt('По сколько человек в команде? '));
+
+// let mainArr = [];
+
+
+// for ( let i = 0, max = userTeams; i < max; i++ ){
+//     let teamArr = [];
+    
+//     for( let j = 0, max = userPeople; j < max; j++ ){
+
+//     let idx = Math.floor(Math.random()*copyArr.length);
+
+//     let random = copyArr.splice(idx, 1);
+
+//     teamArr.push(random.toString());
+    
+//     }
+    
+//     mainArr.push(teamArr);
+// }
+// console.table(mainArr);
+
+//==============================
+
+
+// Написать програму которая будет отвечать за список покупок
+// 1) В диалоговое окно вводим количество покупок которое хотим сделать;
+// 2) Сколько покупок столько раз появится окно где юзер пишет фразу "Название товара:цена" Например ("Булочка:5")
+// 3) После ввода всех товаров алертом вывести суму покупок;
+
+
+// let number = prompt('Сколько товаров хочешь купить?');
+// let sum = 0;
 
 
 
+// for ( let i = 0; i < number; i++){
+//     let goods = prompt('Введи (товар:цена)');
+//     let priceIdx = goods.indexOf(':');
+//     let price = goods.substr(priceIdx + 1);
+//     sum = sum + Number(price);
+// }
+// alert(sum);
 
+//==============================
 
+// 1) Данно оригинальний масив let arr = [5,10,15,20,25,30,35,40];
+// 2) Данно масив з остатком let result = [10,20,35];
+// 3) Получить масив удаленых чисел; // [5,15,25,30,40];
+    
+//ДОДЕЛАТЬ!!!
 
+//==============================
+//Вытянуть уникальные
+// const first = [1,2,3];
+// const second = [100,2,1,10];
+// const result = [];
 
+// for(let el of first){
+//     if(!second.includes(el)){
+//         result.push(el);
+//     }
+// }
+    
+// for(let item of second){
+//     if(!first.includes(item)){
+//         result.push(item);
+//     }
+// }
 
+// console.log(result);
+    
+//==============================
 
+// let arr = [1,2,5,10,12,5,3,2,8,3];
+// // получить масив уникальных значений // [1,10,12,8]
 
+// let uniq = [];
 
+// for(let el of arr) {
+//     let count = 0;
+//     for(let otherEl of arr){
+//         if(el === otherEl){
+//             count++;
+//         }
+//     }
+//     if(count === 1) {
+//         uniq.push(el);
+//     }
+// }
+
+// console.log(uniq);
+
+//==============================
+
+// Задачка домой
+//  Написать код который удалит из масива  null, 0, "", false, undefined NaN
+// 1) let start =  [NaN, 0, 15, false, -22, '',undefined, 47, null];
+// 2) Должны получить на виходе let result = [15, -22, 47];
 
 
 
