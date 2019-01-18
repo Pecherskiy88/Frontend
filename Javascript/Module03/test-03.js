@@ -634,7 +634,36 @@
 // console.log(closestToZero([-2, 3, 5, 10])) // -2
 // console.log(closestToZero([-7, -5, -3, 3, 5, 8])) //3
 //============================================
+
+//Р Е К У Р С И Я   Р Е П Е Т А
+
+// const numbers = [1, [2, [3]], [4, [5, 6]]];
+
+// const flatten = function self(arr) {
+//     let flatArr = [];
+
+//     for (let elem of arr) {
+//         const isArray = Array.isArray(elem);
+
+//         if (isArray) {
+//             flatArr = flatArr.concat(self(elem));
+//         } else {
+//             flatArr.push(elem)
+//         }
+//     }
+//     return flatArr;
+// }
+
+// const flat = flatten(numbers);
+// console.log(flat);
+
+
+
 //============================================
+ const arr = [1,2,3, [4,5,6]];
+ const newArr = arr.flat(1);
+ console.log(newArr);
+ 
 //============================================
 
 
