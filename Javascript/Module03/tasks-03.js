@@ -169,15 +169,15 @@
   которая получает массив чисел numbers, и возвращает 
   самое большое число в массиве.
 */
-//   const findLargestNumber = function(arr) {
-//       let largeNum = 0;
-//       for(let item of arr){
-//         if(largeNum < item){
-//           largeNum = item;
-//         }
-//       }
-//       return largeNum;
-//   };
+  // const findLargestNumber = function(arr) {
+  //     let largeNum = 0;
+  //     for(let item of arr){
+  //       if(largeNum < item){
+  //         largeNum = item;
+  //       }
+  //     }
+  //     return largeNum;
+  // };
 
 
 // // Вызовы функции для проверки
@@ -203,38 +203,100 @@
   а те которые в массиве уже есть игнорирует.
 */
 
-const uniqueNumbers  = [2, 1, 4, 9];
+// const uniqueNumbers  = [2, 1, 4, 9];
 
-const addUniqueNumbers = function() {
-  const num = Array.from(arguments);
-  for (let j = 0, max = uniqueNumbers.length; j < max; j += 1){
+// const addUniqueNumbers = function() {
+  
+//    for(let item of arguments){
+//      if(!uniqueNumbers.includes(item)){
+//         uniqueNumbers.push(item);
+//      }
+//    }
+//   return
+// };
 
-      for (let i = 0, max = num.length; i < max; i += 1){
-        if(num[i] !== uniqueNumbers[j]){
-          uniqueNumbers.push(num[i]);
-        }
-    }
-    break;
-  }
-  return uniqueNumbers;
+// // Вызовы функции для проверки
+// addUniqueNumbers(1, 2, 3);
+// console.log(
+//   uniqueNumbers
+// ); // [2, 1, 4, 9, 3]
 
-};
+// addUniqueNumbers(12, 2, 3, 19);
+// console.log(
+//   uniqueNumbers
+// ); // [2, 1, 4, 9, 3, 12, 19]
 
-// Вызовы функции для проверки
-addUniqueNumbers(1, 2, 3);
-console.log(
-  uniqueNumbers
-); // [2, 1, 4, 9, 3]
-
-addUniqueNumbers(12, 2, 3, 19);
-console.log(
-  uniqueNumbers
-); // [2, 1, 4, 9, 3, 12, 19]
-
-addUniqueNumbers(4, 5, 12, 3, 1, 2, 8);
-console.log(
-  uniqueNumbers
-); // [2, 1, 4, 9, 3, 12, 19, 5, 8]
+// addUniqueNumbers(4, 5, 12, 3, 1, 2, 8);
+// console.log(
+//   uniqueNumbers
+// ); // [2, 1, 4, 9, 3, 12, 19, 5, 8]
 //======================================================================
+
+/* 08
+  Напишите функцию filterFromArray(arr), которая 
+  объявляет 1 параметр, исходный массив arr.
+  
+  При вызове функции, первым аргументом всегда будет массив чисел,
+  за которым следуют один или несколько аргументов, тоже чисел. 
+  
+  Функция возвращает новый массив, который содержит только 
+  те элементы исходного массива, которые не совпадают 
+  ни с одним из числовых аргументов.
+*/
+
+// const filterFromArray = function(arr,...rest) {
+//       rest.join('');
+      
+//       const newArr = [];
+
+//       for(let itemArr of arr){
+
+//         let count = 1;
+
+//         for(let itemRest of rest){
+
+//           if(itemArr === itemRest){
+//             count += 1;
+//           }
+
+//         }
+
+//         if(count === 1){
+//           newArr.push(itemArr)
+//         }
+//       }
+//     return newArr; 
+// }; 
+
+// // Вызовы функции для проверки
+// console.log(
+//   filterFromArray([1, 2, 3, 4, 5], 2, 4)
+// ); // [1, 3, 5]
+
+// console.log(
+//   filterFromArray([12, 4, 3, 8, 17], 3, 29, 18, 4)
+// ); // [12, 8, 17]
 //======================================================================
+// Второе решение
+// const filterFromArray = function(arr){
+//   let newArr = Array.from(arguments);
+//   newArr.shift();
+//   let result = [];
+//   for(let i = 0; i < arr.length; i++){
+//     if(!newArr.includes(arr[i])){
+//       result.push(arr[i]);
+//     }
+//   }
+//   return result
+  
+// };
+
+// // Вызовы функции для проверки
+// console.log(
+//   filterFromArray([1, 2, 3, 4, 5], 2, 4)
+// ); // [1, 3, 5]
+
+// console.log(
+//   filterFromArray([12, 4, 3, 8, 17], 3, 29, 18, 4)
+// ); // [12, 8, 17]
 //======================================================================
