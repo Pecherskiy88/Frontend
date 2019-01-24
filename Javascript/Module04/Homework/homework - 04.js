@@ -43,20 +43,40 @@ const products = {
     - reset() - метод, сбрасывает поле customerMoney 0.
 */
 
-function Cashier(name, productDatabase) {
+function Cashier(name, product) {
   this.name = name;
-  this.productDatabase = productDatabase;
+  this.productDatabase = product;
   this.customerMoney = 0;
+  this.getCustomerMoney = function(value) {
+   return this.customerMoney = this.customerMoney + value;
+  }
   this.countTotalPrice = function(order) {
     let sum = 0;
-    for(let item in order){
-      for(let price in products) {
-        sum = sum + (order.item * products.price);
-      }
+    for(let key in order){
+      sum += this.productDatabase[key]*order[key]
     }
-    return sum;
+    return sum
+  }
+  
+  this.countChange = function(num) {
+  let result = this.customerMoney - num;
+  if(this.customerMoney < num){
+    return null
+  }else{
+    return result
+  }
+  }
+  this.onSuccess = function(change){
+    console.log(`Спасибо за покупку, ваша сдача ${change}!`);
+  }
+  this.onError = function(){
+    console.log(`Очень жаль, вам не хватает денег на покупки`);
+  }
+  this.reset = function(){
+    this.customerMoney = 0;
   }
 };
+
 
 /* Заказ пользователя хранится в виде объекта следующего формата. "имя-продукта":"количество-единиц" */
 const order = {
@@ -74,8 +94,8 @@ console.log(mango.name); // Mango
 console.log(mango.productDatabase); // ссылка на базу данных продуктов (объект products)
 console.log(mango.customerMoney); // 0
 
-// Вызываем метод countTotalPrice для подсчета общей суммы
-// передавая order - список покупок пользователя
+// // Вызываем метод countTotalPrice для подсчета общей суммы
+// // передавая order - список покупок пользователя
 const totalPrice = mango.countTotalPrice(order);
 
 // Проверям что посчитали
@@ -87,10 +107,10 @@ mango.getCustomerMoney(300);
 // Проверяем что в поле с деньгами пользователя
 console.log(mango.customerMoney); // 300
 
-// Вызываем countChange для подсчета сдачи
-const change = mango.countChange();
+// // Вызываем countChange для подсчета сдачи
+const change = mango.countChange(totalPrice);
 
-// Проверяем что нам вернул countChange
+// // Проверяем что нам вернул countChange
 console.log(change); // 190
 
 // Проверяем результат подсчета денег
