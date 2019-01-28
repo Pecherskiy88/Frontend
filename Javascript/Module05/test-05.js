@@ -85,6 +85,14 @@ const scientist = [{
 }
 ];
 
+
+
+
+
+
+//==============================================
+
+
 // 1) отримати масив вчених що народилися в 19 ст
 // const result = scientist.filter(function(elem) {
 //   if( elem.year >= 1800 && elem.year < 1900 ){

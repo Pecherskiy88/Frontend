@@ -513,6 +513,52 @@
 // player3.acselerate(30);
 // console.log(player3);
 //=======================================================================
+//=======================================================================
+// П Р И М Е Р    О Т    Р Е П Е Т Ы !!!!!!!!!!!!!!!!
+function Hero(name,xp){
+    this._name = name;
+    this.xp = xp;
+    //cоздали шаблон героя с базовыми навыками
+};
+
+Hero.prototype.gainXP = function(amount) {
+    console.log(`${this.name} gained ${amount} experience points`);
+    this.xp += amount;
+    // добавили метод реген хп в прототип Hero
+};
+const mango = new Hero('Mango', 1000);
+console.log(mango);
+// создали нового героя Mango по основному шаблону с базовыми навыками от Hero и методом gainXP
+
+
+function Warrior(name, xp, weapon) {
+    // создаем новый класс, который будет наследовать базовые статы Hero, но и иметь дополнительные.
+    Hero.call(this, name, xp);
+    // добавляем через this, все базовые статы от Hero
+    this.weapon = weapon;
+    // добавляем новый стат для класса Warrior
+}
+Warrior.prototype = Object.create(Hero.prototype)
+// записываем в прототип Warriora все МЕТОДЫ, которые есть в прототипе базового Hero. 
+// в данном случае метод gainXP
+Warrior.prototype.constructor = Warrior;
+// Напрямую добавляем в прототип нашего Warrior конструктор. ???
+
+
+Warrior.prototype.attack = function(){
+    console.log(`${this.name} attack with ${this.weapon}`);
+    //добавляем новый метод attack в прототип конкретного класса Warrior
+};
+
+const poly = new Warrior('Poly', 1000, 'sword');
+//создаем нового героя poly класса Warrior
+poly.gainXP(500);
+poly.attack();
+console.log(poly);
+//  теперь игрок Poly с классом Warrior имеет статы Hero, новый стат weapon
+// и наследует метод gainXP из прототипа Hero и имеет свой метод attack в своем прототипе
+//=======================================================================
+
 
 
 // СДЕЛАТЬ!
@@ -548,3 +594,6 @@
 // Викликати для першої і другої книги методи burn(arr), щоб видатити їх з масива books
 //=======================================================================
 //=======================================================================
+// спросить за Static, get and set
+
+

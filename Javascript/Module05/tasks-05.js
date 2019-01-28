@@ -19,13 +19,14 @@
 //     return result;
 //   };
 
+
 // РЕШЕНИЕ
 // const findGreaterThan = (num, arr) => arr.filter(elem => num < elem);
 
   
-//   console.log( findGreaterThan(2, [1, 2, 3, 4, 5]) ); // [3, 4, 5,]
-//   console.log( findGreaterThan(3, [1, 2, 3, 4, 5]) ); // [4, 5,]
-//   console.log( findGreaterThan(1, [1, 2, 3, 4, 5]) ); // [2, 3, 4, 5,]
+  // console.log( findGreaterThan(2, [1, 2, 3, 4, 5]) ); // [3, 4, 5,]
+  // console.log( findGreaterThan(3, [1, 2, 3, 4, 5]) ); // [4, 5,]
+  // console.log( findGreaterThan(1, [1, 2, 3, 4, 5]) ); // [2, 3, 4, 5,]
   
 //   /* 
 //     Функция multiplyBy принимает два аргумента - число и массив. 
@@ -40,13 +41,16 @@
   
 //     return result;
 //   };
+
+
+
   // РЕШЕНИЕ
 //   const multiplyBy = (num, arr) =>
 //   arr.map(elem => elem * num);
 
-//   console.log( multiplyBy(2, [1, 2, 3, 4, 5]) ); // [2, 4, 6, 8, 10]
-//   console.log( multiplyBy(3, [1, 2, 3, 4, 5]) ); // [3, 6, 9, 12, 15]
-//   console.log( multiplyBy(4, [1, 2, 3, 4, 5]) ); // [4, 8, 12, 16, 20]
+  // console.log( multiplyBy(2, [1, 2, 3, 4, 5]) ); // [2, 4, 6, 8, 10]
+  // console.log( multiplyBy(3, [1, 2, 3, 4, 5]) ); // [3, 6, 9, 12, 15]
+  // console.log( multiplyBy(4, [1, 2, 3, 4, 5]) ); // [4, 8, 12, 16, 20]
   
 //   /* 
 //     Функция summAllNumbers принимает любое число аргументов.
@@ -62,14 +66,16 @@
 //     return accumulator;
 //   }
 
+
+
 //РЕШЕНИЕ 
 // function summAllNumbers(...args) {
 //      return args.reduce(((acc, elem) => acc + elem),0)
 // }
     
-//   console.log( summAllNumbers(1, 2, 3) ); // 6
-//   console.log( summAllNumbers(1, 2, 3, 4) ); // 10
-//   console.log( summAllNumbers(1, 2, 3, 4, 5) ); // 15
+  // console.log( summAllNumbers(1, 2, 3) ); // 6
+  // console.log( summAllNumbers(1, 2, 3, 4) ); // 10
+  // console.log( summAllNumbers(1, 2, 3, 4, 5) ); // 15
   
 //   /* 
 //     Функция findEvery получает два аргумента - число и массив.
@@ -86,13 +92,14 @@
 //     return true;
 //   };
 
+
 //РЕШЕНИЕ 
 // const findEvery = (num, arr) => 
 // arr.every(elem => elem >= num ? true : false)
   
-//   console.log( findEvery(5, [5, 6, 7, 8, 9]) ); // true
-//   console.log( findEvery(6, [5, 6, 7, 8, 9]) ); // false
-//   console.log( findEvery(4, [5, 6, 7, 8, 9]) ); // true
+  // console.log( findEvery(5, [5, 6, 7, 8, 9]) ); // true
+  // console.log( findEvery(6, [5, 6, 7, 8, 9]) ); // false
+  // console.log( findEvery(4, [5, 6, 7, 8, 9]) ); // true
   //=========================================================================
 
 
@@ -112,13 +119,14 @@
 //     { name: "Chelsey", age: 45, isActive: false }
 //   ];
   
+
 //   const getPropValues = (arr, prop) => arr.map(elem => elem[prop]);
 //   // Вызовы функции для проверки
-//   console.log( getPropValues(guests, "name") ); // ['Mango', 'Poly', 'Ajax', 'Chelsey']
+  // console.log( getPropValues(guests, "name") ); // ['Mango', 'Poly', 'Ajax', 'Chelsey']
   
-//   console.log( getPropValues(guests, "age") ); // [20, 18, 30, 45]
+  // console.log( getPropValues(guests, "age") ); // [20, 18, 30, 45]
   
-//   console.log( getPropValues(guests, "isActive") ); // [true, false, true, false]
+  // console.log( getPropValues(guests, "isActive") ); // [true, false, true, false]
   
   //=========================================================================
 /*  03    
@@ -142,23 +150,24 @@
 //     { name: 'Chelsey', inactiveDays: 85, isActive: true }
 //   ];
   
+
 //   const setGuestState = (users, period) =>
   
 //    users.map(elem => elem.inactiveDays > period ? false : true)
   
    
-//   // Вызовы функции для проверки
-//   console.log(
-//     setGuestState(guests, 10)
-//   ); // Объекты Mango, Ajax, Chelsey получат isActive false, а Poly наоборот true
+  // // Вызовы функции для проверки
+  // console.log(
+  //   setGuestState(guests, 10)
+  // ); // Объекты Mango, Ajax, Chelsey получат isActive false, а Poly наоборот true
   
-//   console.log(
-//     setGuestState(guests, 20)
-//   ); // Объекты Ajax, Chelsey получат isActive false, а Mango и Poly наоборот true
+  // console.log(
+  //   setGuestState(guests, 20)
+  // ); // Объекты Ajax, Chelsey получат isActive false, а Mango и Poly наоборот true
   
-//   console.log(
-//     setGuestState(guests, 50)
-//   ); // Объект Chelsey получит isActive false, а Mango, Poly и Ajax наоборот true
+  // console.log(
+  //   setGuestState(guests, 50)
+  // ); // Объект Chelsey получит isActive false, а Mango, Poly и Ajax наоборот true
 
 
   //=========================================================================
@@ -179,10 +188,12 @@
 //     { name: "Ajax", age: 30, isActive: true },
 //     { name: "Chelsey", age: 45, isActive: false }
 //   ];
+
+
   
 //   const getActiveGuests = (guests => guests.filter(elem => elem.isActive === true));
 //   // Вызовы функции для проверки
-//   console.log(getActiveGuests(guests)); // массив из 2-х объектов Mango и Ajax
+  // console.log(getActiveGuests(guests)); // массив из 2-х объектов Mango и Ajax
   
   //=========================================================================
 
@@ -204,15 +215,17 @@
 //     { name: "Chelsey", age: 45, isActive: false }
 //   ];
   
+
+ 
 //   const getGuestsOlderThan = (guest, age) =>
 //      guest.filter(elem => elem.age > [age]);
 
 //   // Вызовы функции для проверки
-//   console.log(getGuestsOlderThan(guests, 25)); // массив из 2-х объектов Ajax и Chelsey
+  // console.log(getGuestsOlderThan(guests, 25)); // массив из 2-х объектов Ajax и Chelsey
   
-//   console.log(getGuestsOlderThan(guests, 35)); // [{name: 'Chelsey', age: 45, isActive: false}]
+  // console.log(getGuestsOlderThan(guests, 35)); // [{name: 'Chelsey', age: 45, isActive: false}]
   
-//   console.log(getGuestsOlderThan(guests, 55)); // []
+  // console.log(getGuestsOlderThan(guests, 55)); // []
   
   //=========================================================================
 
@@ -232,20 +245,21 @@
 //     { id: 4, name: 'Chelsey', age: 45 }
 //   ];
 
+
 //   const getGuestById = (guests, id) => guests.find(elem => elem.id === id) 
   
-//   // Вызовы функции для проверки
-//   console.log(
-//     getGuestById(guests, 3)
-//   ); // {id: 3, name: 'Ajax', age: 30}
+  // // Вызовы функции для проверки
+  // console.log(
+  //   getGuestById(guests, 3)
+  // ); // {id: 3, name: 'Ajax', age: 30}
   
-//   console.log(
-//     getGuestById(guests, 1)
-//   ); // {id: 1, name: 'Mango', age: 20}
+  // console.log(
+  //   getGuestById(guests, 1)
+  // ); // {id: 1, name: 'Mango', age: 20}
   
-//   console.log(
-//     getGuestById(guests, 5)
-//   ); // undefined
+  // console.log(
+  //   getGuestById(guests, 5)
+  // ); // undefined
   //=========================================================================
   /* 07
   Используя метод reduce, посчитайте сумму 
@@ -262,7 +276,7 @@
 //  const arr = Object.keys(order)
 //  .reduce((acc, elem)=> acc+order[elem],0);
  
-//   console.log(arr); // 150
+  // console.log(arr); // 150
 
   //=========================================================================
   /* 08
@@ -296,12 +310,15 @@
 //   };
 
 
+
+
+
 //   const getTotalPrice = (products, order)=> Object.keys(order).reduce((acc, elem) => acc + order[elem] * products[elem],0);
   
-//   // Вызовы функции для проверки
-//   console.log(getTotalPrice(products, orderA)); // 140
+  // Вызовы функции для проверки
+  // console.log(getTotalPrice(products, orderA)); // 140
   
-//   console.log(getTotalPrice(products, orderB)); // 130
+  // console.log(getTotalPrice(products, orderB)); // 130
   //=========================================================================
 
 /*     09
@@ -327,9 +344,10 @@
 //     { name: "Ajax", isActive: true }
 //   ];
   
+ 
 
 //   const allGuestsActive = guests => guests.every(elem => elem.isActive === true);
-//   // Вызовы функции для проверки
+// //   // Вызовы функции для проверки
 //   console.log(allGuestsActive(guestsA)); // false
   
 //   console.log(allGuestsActive(guestsB)); // true
