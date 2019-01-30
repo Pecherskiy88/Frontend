@@ -78,7 +78,7 @@ let sectionArr = [{
     text: 'Albert Einstein dies of heart failure at the age of 76.',
 }
 ]
-
+//===================================================
 //методы:
 // classList
 // elem.classList.contains(cls)
@@ -269,24 +269,7 @@ divLink.append(aLink);
 
 
 const footer = document.createElement('footer');
+footer.innerHTML = `<p id="copyright">Tribute page project for <i class="fa fa-free-code-camp"></i> by Joni Vainio-Kaila</p>`
+
 root.append(footer);
-
-const pCopy = document.createElement('p');
-pCopy.setAttribute('id', 'copyright');
-pCopy.textContent = 'Tribute page project for ';
-
-footer.prepend(pCopy);
-
-const iCopy = document.createElement('i');
-iCopy.classList.add('fa', 'fa-free-code-camp');
-iCopy.textContent = ' by Joni Vainio-Kaila';
-
-
-pCopy.append(iCopy);
-
-
-
-
-
-
 

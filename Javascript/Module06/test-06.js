@@ -86,12 +86,12 @@
 //     }
 // };
 
-// Pizza.prototype.deleteToppings = function(topping){
-//     if(!this.toppings.includes(topping)){
-//         return
-//     }
-//     this.toppings = this.toppings.filter(el => el !== topping);
-// };
+Pizza.prototype.deleteToppings = function(topping){
+    if(!this.toppings.includes(topping)){
+        return
+    }
+    this.toppings = this.toppings.filter(el => el !== topping);
+};
 // Pizza.prototype.addSouce = function(souce) {
 //     if(!this.souces.includes(souce)){
 //         this.souces.push(souce)
