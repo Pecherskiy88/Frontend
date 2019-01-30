@@ -34,8 +34,11 @@ console.log(btnH);
 function run(e){
     let random1 = Math.random() * (window.innerWidth - btnW);
     let random2 = Math.random() * (window.innerHeight - btnH);
+    e.target.style.transition = '1s';
+
     e.target.style.left= `${random1}px`;
     e.target.style.top = `${random2}px`;
+
 }
 
 

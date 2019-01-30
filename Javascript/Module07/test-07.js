@@ -262,7 +262,7 @@ main.append(divLink);
 
 const aLink = document.createElement('a');
 aLink.setAttribute('id', 'tribute-link');
-aLink.setAttribute('href', 'http://www.shmoop.com/albert-einstein/timeline.html');
+aLink.setAttribute('href', 'ht tp://www.shmoop.com/albert-einstein/timeline.html');
 aLink.setAttribute('target', '_blank');
 aLink.textContent = 'Full timeline at Shmoop!';
 divLink.append(aLink);

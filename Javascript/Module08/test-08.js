@@ -10,22 +10,22 @@
 
 
 
-// const price= document.querySelector('#price');
-// const quantity = document.querySelector('#quantity');
-// const textTotal = document.querySelector('.total');
-// let span = document.querySelector('.amount');
-// let total = 0;
-// const form = document.querySelector('.form');
+const price= document.querySelector('#price');
+const quantity = document.querySelector('#quantity');
+const textTotal = document.querySelector('.total');
+let span = document.querySelector('.amount');
+let total = 0;
+const form = document.querySelector('.form');
 
 
 
-// function sum(){
-//     total = price.value * quantity.value;
-//     textTotal.textContent = total.toFixed(2);
-//     span.textContent = quantity.value;
-// };
-// form.addEventListener('input', sum);
-// window.addEventListener('DOMContentLoaded', sum);
+function sum(){
+    total = price.value * quantity.value;
+    textTotal.textContent = total.toFixed(2);
+    span.textContent = quantity.value;
+};
+form.addEventListener('input', sum);
+window.addEventListener('DOMContentLoaded', sum);
 
 
 //===============================================================================
