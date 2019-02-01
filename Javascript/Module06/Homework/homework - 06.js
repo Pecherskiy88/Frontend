@@ -106,6 +106,7 @@ class Hamburger {
     calculateCalories() {
       let hamburgerCalories = Hamburger.SIZES[this._size].calories;
       let stuffingCalories = Hamburger.STUFFINGS[this._stuffing].calories;
+      
       let toppingCalories = this._toppings.reduce((acc, el) => acc + Hamburger.TOPPINGS[el].calories, 0)
 
 
