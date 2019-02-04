@@ -52,24 +52,55 @@ const btnAdd = document.querySelector('button[data-action = "add"]');
 let result = document.querySelector('span');
 
 
-btnSub.addEventListener('click', fnResult);
-btnAdd.addEventListener('click', fnResult);
-let sum = 0;
 
-function fnResult(e){
-  if(e.target === btnAdd){
-    sum += 1;
+//=====обычный метод=========
+// let sum = 0;
 
-  }else if(e.target === btnSub){
-    sum -= 1;
-  }
-  return result.textContent = sum;
+// function fnResult(e){
+//   if(e.target === btnAdd){
+//     sum += 1;
 
-};
+//   }else if(e.target === btnSub){
+//     sum -= 1;
+//   }
+//   return result.textContent = sum;
+
+// };
+
+
 
 //==========Переделать на класс===========
 
+function update (value) {
+  result.textContent = value;
+}
 
+class Counter{
+  constructor(onChange) {
+    this.value = 0;
+    this.onChange = onChange;
+    onChange(this.value);
+    this.inc = this.inc.bind(this);
+    this.dec = this.dec.bind(this);
+  }
+
+  inc() {
+    this.value++;
+    this.onChange(this.value)
+  }
+
+  dec() {
+    this.value--
+    this.onChange(this.value)
+
+  }
+}
+
+let counter =  new Counter(update);
+
+
+btnSub.addEventListener('click', counter.dec);
+btnAdd.addEventListener('click', counter.inc);
 
 
 

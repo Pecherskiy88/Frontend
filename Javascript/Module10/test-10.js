@@ -28,22 +28,22 @@ function fnUrl(url){
 function fnDraw(arr){
 
     //============через создание элементов========
-    // for(let elem of arr){
-    //     const divOne = document.createElement('div');
-    //     let p = document.createElement('p');
-    //     p.textContent = `${elem.name}`
-    //     const img = document.createElement('img');
-    //     img.setAttribute('src', `${elem.webformatURL}`)
-    //     divOne.append(p, img);
-    //     container.append(divOne);
-    // }
+    for(let elem of arr){
+        const divOne = document.createElement('div');
+        let p = document.createElement('p');
+        p.textContent = `${elem.name}`
+        const img = document.createElement('img');
+        img.setAttribute('src', `${elem.webformatURL}`)
+        divOne.append(p, img);
+        container.append(divOne);
+    }
     //==========через иннер HTML================
 
-    let string = arr.reduce((acc, elem)=> acc + `<div class="one">
-    <p>Photographer is ${elem.name}</p>
-    <img src=${elem.webformatURL}>
-    </div>`, '');
-    container.innerHTML = string;
+    // let string = arr.reduce((acc, elem)=> acc + `<div class="one">
+    // <p>Photographer is ${elem.name}</p>
+    // <img src=${elem.webformatURL}>
+    // </div>`, '');
+    // container.innerHTML = string;
     
 };
 
