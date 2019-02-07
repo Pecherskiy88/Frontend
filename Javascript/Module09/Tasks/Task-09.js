@@ -119,20 +119,19 @@ const timer = {
   id: null
 };
 startBtn.addEventListener('click', fnInterval);
+
 function fnInterval() {
     timer.startTime = Date.now();
-    setInterval(startTime, 100);
+    setInterval(startTime, 10000);
+
 }
+
+
 function startTime() {
  
     let nowTime = Date.now();
-
-    
-    
-    timer.deltaTime = nowTime - timer.startTime;
+    timer.deltaTime = Math.floor((nowTime/1000) - (timer.startTime/1000));
     clockface.textContent = timer.deltaTime;
-
-
 }
 
 startTime();
