@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test11</title>
+    <link rel="stylesheet" href="./test-11-2.css">
+</head>
+<body>
+    <div class="root"></div>
+
+
+    <template class="template">
+        <div class="cart">
+            <img src="{{picture.large}}" alt="human" class="image">
+            <p class="title">My name is</p>
+            <p class="description">{{name.first}} {{name.last}}</p>
+            <ul class="list">
+
+                <li class="items" data-title="My name is"  data-text="{{name.first}} {{name.last}}"></li>
+
+                <li class="items" data-title="My email" data-text={{email}}></li>
+
+                <li class="items" data-title="I was born" data-text={{dob.date}}></li>
+
+                <li class="items" data-title="I live in" data-text="{{location.city}} {{location.city}} {{location.street}}"></li>
+
+                <li class="items" data-title="My phone number" data-text="{{cell}}"></li>
+
+                <li class="items" data-title="My password" data-text="{{login.password}}"></li>
+                
+            </ul>
+
+        </div>
+
+    </template>   
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+    <script src="./test-11-2.js"></script>
+</body>
+</html>
