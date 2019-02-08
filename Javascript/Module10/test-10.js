@@ -39,11 +39,11 @@ function fnDraw(arr){
     }
     //==========через иннер HTML================
 
-    // let string = arr.reduce((acc, elem)=> acc + `<div class="one">
-    // <p>Photographer is ${elem.name}</p>
-    // <img src=${elem.webformatURL}>
-    // </div>`, '');
-    // container.innerHTML = string;
+    let string = arr.reduce((acc, elem)=> acc + `<div class="one">
+    <p>Photographer is ${elem.name}</p>
+    <img src=${elem.webformatURL}>
+    </div>`, '');
+    container.innerHTML = string;
     
 };
 

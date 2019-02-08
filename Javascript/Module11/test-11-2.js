@@ -9,8 +9,9 @@ fetch(url)
 
 function fnTemplate(obj){
     const bDay = new Date(obj.dob.date);
-   
     obj.dob.date = bDay.toLocaleDateString();
+    
+    
     
     const source = document.querySelector('.template').innerHTML.trim();
     const templateFunc = Handlebars.compile(source);
@@ -26,9 +27,8 @@ function fnTemplate(obj){
 
     const ul = document.querySelector('.list');
     ul.addEventListener('mouseover', fnInfo);
-    
     const pTitle = document.querySelector('.title')
-    console.log(pTitle);
+  
     
     function fnInfo(e){
         if(e.target.nodeName !== "LI"){
