@@ -116,28 +116,57 @@ const stopBtn = document.querySelector(".js-timer-stop");
 const timer = {
   startTime: null,
   deltaTime: null,
-  id: null
+  id: null,
+  active: false,
 };
-startBtn.addEventListener('click', fnInterval);
 
-function fnInterval() {
-    timer.startTime = Date.now();
-    setInterval(startTime, 10000);
+startBtn.addEventListener('click', startTimer);
+stopBtn.addEventListener('click', stopTimer);
 
+
+function startTimer() {
+  timer.active = true;
+  if(timer.active === true){
+    timer.startTime = new Date();
+    timer.id = setInterval(()=> {
+      let currentTime = new Date();
+      
+      timer.deltaTime = currentTime - timer.startTime;
+      let time = new Date(timer.deltaTime);
+      updateClockface(time);
+    },100);
+  }
+};
+
+function stopTimer(){
+  timer.active = false;
 }
 
 
-function startTime() {
- 
-    let nowTime = Date.now();
-    timer.deltaTime = Math.floor((nowTime/1000) - (timer.startTime/1000));
-    clockface.textContent = timer.deltaTime;
-}
+function updateClockface(time){
+  let date = new Date(time);
+  let millisecond = Math.floor(date.getMillisecond());
+  let seconds = date.getSeconds();
+  let minutes = date.getMinutes();
+  return console.log(clockface.textContent = `${minutes}: ${seconds}. ${millisecond}`);
+  
 
-startTime();
+};
 
 
-//=====================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 * Вспомогательные функции
 */
@@ -164,43 +193,6 @@ function setActiveBtn(target) {
   
   target.classList.add('active');
 }
-
-    
-
-//==================КОЗИЙ СПОСОБ!:)==========================
-// let minute = 0;
-// let second = 0;
-// let milisecond = 0;
-// let interval;
-// startBtn.addEventListener('click', fnInterval);
-// function fnInterval(){
-//     interval = setInterval(startTime, 0.5);
-// }
-
-// function startTime() {
-//     if(milisecond < 1000){
-//         milisecond += 1;
-//         clockface.textContent = `${minute}:${second}.${milisecond}`
-//     }else if(milisecond === 1000){
-//         milisecond = 0;
-//         milisecond += 1;
-//     }
-
-//     if(milisecond === 1000 && second < 60){
-//         second += 1;
-//         clockface.textContent = `${minute}:${second}.${milisecond}`
-//     }else if(second === 60){
-//         second = 0;
-//         second += 1;
-//     }
-//     if(second === 60 && minute < 60){
-//         minute +=1;
-//         clockface.textContent = `${minute}:${second}.${milisecond}`
-//     }
- 
-  
-    
-// }
 
 
 
