@@ -117,7 +117,6 @@ const timer = {
   startTime: null,
   deltaTime: null,
   id: null,
-  active: false,
 };
 
 startBtn.addEventListener('click', startTimer);
@@ -125,75 +124,96 @@ stopBtn.addEventListener('click', stopTimer);
 
 
 function startTimer() {
-  timer.active = true;
-  if(timer.active === true){
-    timer.startTime = new Date();
-    timer.id = setInterval(()=> {
-      let currentTime = new Date();
-      
-      timer.deltaTime = currentTime - timer.startTime;
-      let time = new Date(timer.deltaTime);
-      updateClockface(time);
-    },100);
-  }
-};
+timer.startTime = Date.now();
+timer.id = setInterval(interval, 100)
 
+};
 function stopTimer(){
-  timer.active = false;
+  clearInterval(timer.id);
 }
+function interval(){
+  let date = Date.now();
+  timer.deltaTime = date - timer.startTime;
+  updateClockface(clockface, timer.deltaTime);
+};
 
+function updateClockface(elem, time){
+  elem.textContent = getFormattedTime(time);
+};
 
-function updateClockface(time){
-  let date = new Date(time);
-  let millisecond = Math.floor(date.getMillisecond());
-  let seconds = date.getSeconds();
-  let minutes = date.getMinutes();
-  return console.log(clockface.textContent = `${minutes}: ${seconds}. ${millisecond}`);
-  
-
+function getFormattedTime(time){
+  let ms = Math.floor(time % 1000 / 100);
+  let sec = Math.floor(time / 1000 % 60);
+  let min = Math.floor(time / 60000 % 60);
+  min < 10 ? min = "0" + min : null;
+  sec < 10 ? sec = "0" + sec : null;
+  return `${min}:${sec}.${ms}`
 };
 
 
 
 
-
-
-
-
-
-
-
-
-
+//=============================04=======================================================
 
 
 /*
-* Вспомогательные функции
-*/
-
-/*
-* Обновляет поле счетчика новым значением при вызове
-* аргумент time это кол-во миллисекунд
-*/
-function updateClockface(elem, time) {
-  // Используйте функцию getFormattedTime из задания #1
-  // elem.textContent = getFormattedTime(time);
-}
-
-/*
-* Подсветка активной кнопки
-*/
-function setActiveBtn(target) {
-  if(target.classList.contains('active')) {
-    return;
-  }
+  Напишите скрипт работы магазина со складом товаров.
   
-  startBtn.classList.remove('active');
-  stopBtn.classList.remove('active');
+  Есть переменная goodsAmount хранящиая в себе
+  текущее количество единиц какого-то товара на складе.
   
-  target.classList.add('active');
-}
+  Напишите функцию processOrder(amount), получающую
+  кол-во товаров заказанных покупателем, и возвращающую промис.
+  
+  Для имитации проверки достаточного количества товаров
+  на складе используйте setTimeout с delay 500мс.
+  
+  Если на складе товаров больше либо равно заказанному
+  количеству, "верните" строку - "Ваш заказ готов!".
+  
+  В противном случае - "К сожалению на складе не достаточно товаров!".
+  
+  Если же пользователь ввел не число, то выдайте ошибку throw new Error("Некорректный ввод!")  
+*/
+
+// const DELAY = 1000;
+
+// let goodsAmount = 100;
 
 
 
+// function processOrder(amount){
+//   const promise = new Promise((resolve, reject)=>{
+//     setTimeout(()=>{
+//       if(typeof amount !== 'number'){
+//         throw new Error('Некорректный ввод!');
+//       }
+//       if(goodsAmount >= amount){
+//         resolve('Ваш заказ готов!')
+//       }else{
+//         reject('К сожалению, на складе недостаточно товара!')
+//       }
+//     }, DELAY)
+//   })
+//   return promise;
+// }
+
+
+
+// // Вызовы функции для проверки
+// processOrder(50)
+//   .then(result => console.log(result)) // Ваш заказ готов!
+//   .catch(err => console.log(err));
+
+// processOrder(50)
+//   .then(result => console.log(result)) // Ваш заказ готов!
+//   .catch(err => console.log(err));
+
+// processOrder(500)
+//   .then(result => console.log(result)) // К сожалению на складе недостаточно товаров!
+//   .catch(err => console.log(err));
+
+// processOrder("qwe")
+//   .then(result => console.log(result))
+//   .catch(err => console.log(err)); // Некоректный ввод!
 

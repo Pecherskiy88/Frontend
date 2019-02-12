@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  
+}
+body{
+    background-image: url('http://www.topoboi.com/pic/201312/2560x1600/topoboi.com-33998.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.stopwatch{
+    padding-top: 5rem;
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+.time{
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+.btn{
+    border: none;
+    font-size: 1rem;
+    background-color: orange;
+    color: white;
+    padding: 0.5rem 1rem;
+}
+li{
+    width: 15%;
+    margin: 2rem auto;
+    text-align: center;
+    list-style: none;
+    font-size: 1rem;
+    background-color: grey;
+    padding: 0.2rem 0.4rem;
+    color: white;
+}
