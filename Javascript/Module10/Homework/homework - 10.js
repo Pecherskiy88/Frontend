@@ -1,165 +1,148 @@
 'use strict';
 /*
-  Сеть фастфудов предлагает несколько видов гамбургеров.
-  Основа (булочка) гамбургера может быть большой или маленькой (обязательно):
-	- маленькая (+30 денег, +50 калорий)
-	- большая (+50 денег, +100 калорий)
-  Гамбургер может быть с одной из нескольких видов начинок (обязательно):
-	- сыром (+15 денег, +20 калорий)
-	- салатом (+20 денег, +5 калорий)
-	- мясом (+35 денег, +15 калорий)
-  Дополнительно, гамбургер можно:
-	- посыпать приправой (+10 денег, +0 калорий)
-	- полить соусом (+15 денег, +5 калорий)
-  Напишите скрипт, расчитывающий стоимость и калорийность гамбургера. Используте ООП подход,
-  создайте класс Hamburger, константы, методы для выбора опций и рассчета нужных величин.
-  Написанный класс должен соответствовать следующему jsDoc описанию. То есть класс должен содержать
-  указанные методы, которые принимают и возвращают данные указанного типа.
+  Написать приложение для работы с REST сервисом, 
+  все функции делают запрос и возвращают Promise 
+  с которым потом можно работать. 
+  
+  Реализовать следующий функционал:
+  - функция getAllUsers() - должна вернуть текущий список всех пользователей в БД.
+  
+  - функция getUserById(id) - должна вернуть пользователя с переданным id.
+  
+  - функция addUser(name, age) - должна записывать в БД юзера с полями name и age.
+  
+  - функция removeUser(id) - должна удалять из БД юзера по указанному id.
+  
+  - функция updateUser(id, user) - должна обновлять данные пользователя по id. 
+    user это объект с новыми полями name и age.
+  Документацию по бэкенду и пример использования прочитайте 
+  в документации https://github.com/trostinsky/users-api#users-api.
+  Сделать минимальный графический интерфейс в виде панели с полями и кнопками. 
+  А так же панелью для вывода результатов операций с бэкендом.
 */
 
-/**
- * Класс, объекты которого описывают параметры гамбургера.
- */
-class Hamburger {
-    /**
-     * @constructor
-     * @param {String} size - Размер
-     * @param {String} stuffing - Начинка
-     */
-    constructor(size, stuffing) {
-      this._size = size;
-      this._stuffing = stuffing;
-      this._toppings = [];
-    }
-  
-    /**
-     * Добавить topping к гамбургеру. Можно добавить несколько topping, при условии, что они разные.
-     * @param {String} topping - Тип добавки
-     */
-    addTopping(topping) {}
-  
-    /**
-     * Убрать topping, при условии, что она ранее была добавлена
-     * @param {String} topping - Тип добавки
-     */
-    removeTopping(topping) {}
-  
-    /**
-     * Получить список toppings
-     * @returns {Array} - Массив добавленных topping, содержит значения констант Hamburger.TOPPING_*
-     *
-     * Попробуйте сделать это геттером чтобы можно было обращаться как obj.toppings и нам вернет массив добавок
-     */
-    getToppings() {}
-  
-    /**
-     * Узнать размер гамбургера
-     * @returns {String} - размер гамбургера
-     *
-     * Попробуйте сделать это геттером чтобы можно было обращаться как obj.size и нам вернет размер
-     */
-    getSize() {}
-  
-    /**
-     * Узнать начинку гамбургера
-     * @returns {String} - начинка гамбургера
-     *
-     * Попробуйте сделать это геттером чтобы можно было обращаться как obj.stuffing и нам вернет начинку
-     */
-    getStuffing() {}
-  
-    /**
-     * Узнать цену гамбургера
-     * @returns {Number} - Цена в деньгах
-     *
-     * Попробуйте сделать это геттером чтобы можно было обращаться как obj.price и нам вернет сумму.
-     */
-    calculatePrice() {}
-  
-    /**
-     * Узнать калорийность
-     * @returns {Number} - Калорийность в калориях
-     *
-     * Попробуйте сделать это геттером чтобы можно было обращаться как obj.calories и нам вернет сумму.
-     */
-    calculateCalories() {}
+const url = `https://test-users-api.herokuapp.com/users/`;
+
+const form = document.querySelector('.form');
+const input = document.querySelector('.form-text');
+
+const btnUser = document.querySelector('.user-list');
+const ul = document.querySelector('.list');
+
+const formAdd = document.querySelector('.form-add');
+const inputName = document.querySelector('.form-name');
+const inputAge = document.querySelector('.form-age');
+
+const formDel = document.querySelector('.form-del');
+const inputDel = document.querySelector('.form-del-id');
+
+const formUpdate = document.querySelector('.form-update');
+const inputIdforUpdate = document.querySelector('.form-update-id');
+const inputNameUpdate = document.querySelector('.form-update-name');
+const inputAgeUpdate = document.querySelector('.form-update-age');
+
+
+
+
+
+
+
+
+
+btnUser.addEventListener('click', getAllUsers);
+form.addEventListener('submit', getUserById);
+formAdd.addEventListener('submit', addInputs);
+formDel.addEventListener('submit', getIdForDel);
+formUpdate.addEventListener('submit', setChangeUser);
+
+
+function getAllUsers() {
+  fetch(url)
+  .then(response => response.json())
+  .then(data => {
+    let arr = data.data;
+    let result = arr.reduce((acc, el) => acc + `<li>name: ${el.name} - ID: ${el.id} - age: ${el.age}</li>`, '')
+    ul.innerHTML = result;
+  })
+  .then(er => console.log(er))
+};
+
+function returnProm(id){
+  return fetch(url + id)
+};
+
+function getUserById() {
+  event.preventDefault();
+  returnProm(input.value)
+  .then(response => response.json())
+  .then(data => {
+    ul.innerHTML = `name: ${data.data.name}, age: ${data.data.age}`;
+  })
+  input.value = '';
+};
+
+
+function addInputs(){
+  event.preventDefault();
+  let name = inputName.value;
+  let age = inputAge.value;
+  addUser(name,age);
+  inputName.value = '';
+  inputAge.value = '';
+};
+
+function addUser(name, age) {
+  fetch('https://test-users-api.herokuapp.com/users/', {
+  method: 'POST',
+  body: JSON.stringify({ name, age }),
+  headers: {
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
   }
+})
+};
+
+function getIdForDel(){
+
+event.preventDefault();
+let id = inputDel.value;
+removeUser(id);
+
+inputDel.value = '';
+};
+
+function removeUser(id){
+  fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
+    method: 'DELETE'
+  })
+  .then(response => response.json())// проблема с перерисовкой!
+  .then(getAllUsers())
+};
+
+
+function setChangeUser(){
+  event.preventDefault();
+ let id = inputIdforUpdate.value;
+  // let user = {
+    let name= inputNameUpdate.value;
+    let age = inputAgeUpdate.value;
+    console.log(name, age, id);
+  // }// попробовать через обьект
+updateUser(id,name, age);
+
+};
+
+function updateUser(id, name, age){
+fetch(`https://test-users-api.herokuapp.com/users/${id}`, {
+    method: 'PUT',
+    body: JSON.stringify({name, age}),
+    headers: {
+    Accept: 'application/json',
+      "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+};
   
-  /*
-    Размеры, виды добавок и начинок объявите как статические поля класса.
-    Добавьте отсутсвующие поля по аналогии с примером.
-  */
-  Hamburger.SIZE_SMALL = 'SIZE_SMALL';
-  Hamburger.SIZE_LARGE = ...
-  
-  Hamburger.SIZES = {
-    [Hamburger.SIZE_SMALL]: {
-      price: 30,
-      calories: 50,
-    },
-  };
-  
-  Hamburger.STUFFING_CHEESE = 'STUFFING_CHEESE';
-  Hamburger.STUFFING_SALAD = ...
-  Hamburger.STUFFING_MEAT = ...
-  
-  Hamburger.STUFFINGS = {
-    [Hamburger.STUFFING_CHEESE]: {
-      price: 15,
-      calories: 20,
-    },
-  };
-  
-  Hamburger.TOPPING_SPICE = 'TOPPING_SPICE';
-  Hamburger.TOPPING_SAUCE = ...
-  
-  Hamburger.TOPPINGS = {
-    [Hamburger.TOPPING_SPICE]: {
-      price: 10,
-      calories: 0,
-    },
-  };
-  
-  /* Вот как может выглядеть использование этого класса */
-  
-  // Маленький гамбургер с начинкой из сыра
-  const hamburger = new Hamburger(Hamburger.SIZE_SMALL, Hamburger.STUFFING_CHEESE);
-  
-  // Добавка из приправы
-  hamburger.addTopping(Hamburger.TOPPING_SPICE);
-  
-  // Спросим сколько там калорий
-  console.log("Calories: ", hamburger.calculateCalories());
-  
-  // Сколько стоит?
-  console.log("Price: ", hamburger.calculatePrice());
-  
-  // Я тут передумал и решил добавить еще соус
-  hamburger.addTopping(Hamburger.TOPPING_SAUCE);
-  
-  // А сколько теперь стоит?
-  console.log("Price with sauce: ", hamburger.calculatePrice());
-  
-  // Проверить, большой ли гамбургер?
-  console.log("Is hamburger large: ", hamburger.getSize() === Hamburger.SIZE_LARGE); // -> false
-  
-  // Убрать добавку
-  hamburger.removeTopping(Hamburger.TOPPING_SPICE);
-  
-  // Смотрим сколько добавок
-  console.log("Hamburger has %d toppings", hamburger.getToppings().length); // 1
-  
-  /*
-    🔔 Обратите внимание на такие моменты:
-          ✔️ класс не взаимодействует с внешним миром. Это не его дело, этим занимается
-              другой код, а класс живет в изоляции от мира
-          ✔️ обязательные параметры (размер и начинка) мы передаем через конструктор,
-          чтобы нельзя было создать объект, не указав их
-          ✔️ необязательные (добавка) добавляем через методы
-          ✔️ типы начинок обозначены "константами" с понятными именами (на самом деле просто
-              свойствами, написанным заглавными буквами, которые мы договорились считать "константами")
-          ✔️ объект создается через конструктор - функцию, которая задает начальные значения полей.
-          ✔️ в свойствах объекта гамбургера логично хранить исходные данные (размер, тип начинки),
-                а не вычисленные из них (цена, число калорий и т.д.). Рассчитывать цену и калории
-          логично в тот момент, когда это потребуется, а не заранее.
-  */
+
+
+

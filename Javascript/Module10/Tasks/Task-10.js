@@ -1,208 +1,199 @@
 'use strict'
 /* 01
-  Дан массив цветов и кнопки "Start" и "Stop". Сделайте так, чтобы после
-  нажатия кнопки "Start", каждую секунду body менял цвет фона на случайное 
-  значение из массива. 
-
-  При нажатии на кнопку "Stop", изменении цвета фона должно останавливаться.
+  Написать функцию fetchCountryData, которая использует
+  API_URL + текущее значение input для составления запроса.
   
-  Учтите что на кнопку Start могно нажать бесконечное количество раз,
-  сделайте так чтобы пока изменение темы запушено, нажатие на кнопку
-  Start не имело эффекта.
+  Формат полного url таков:
+    https://restcountries.eu/rest/v2/name/имя-страны
+    
+  С помощью fetch сделать запрос по составленому адресу. 
+  Обязательно обработать вариант с ошибкой запроса используя catch. 
+  
+  Результат запроса вывести в поле result в формате:
+    Country name: имя страны
+    Capital: столица
+    Main currency: название денежной единицы
+    Flag: флаг страны
+  
+  Все необходимые данные есть в ответе от API.
+  
+  PS: при отправке формы перезагружается страница,
+  решите эту задачу вспомнив о том, как остановить
+  поведение по умолчанию.
 */
 
-// const colors = ['#FFFFFF', '#F44336', '#2196F3', '#4CAF50', '#FF9800', '#009688', '#795548'];
+// const input = document.querySelector("input");
+// const form = document.querySelector(".search-form");
+// const result = document.querySelector(".result");
 
-// const start = document.querySelector('.js-start');
-// const stop = document.querySelector('.js-stop');
+// form.addEventListener("submit", fetchCountryData);
 
-// let body = document.querySelector('body');
-
-// let interval;
-// let active = false;
-
-
-
-// start.addEventListener('click', fnInt);
-// stop.addEventListener('click', fnStop);
-
-
-// function fnColor(){
-//     let color = Math.floor(Math.random()*colors.length-1);
-//     body.style.backgroundColor = colors[color];
+// /*
+//   @param {FormEvent} evt
+// */
+// function fetchCountryData(e) {
+//    e.preventDefault();   
+//    let value = input.value;
+//    const API_URL = `https://restcountries.eu/rest/v2/name/${value}`;
+//     fetch(API_URL)
+//     .then(response => response.json())
+//     .then(data => createBox(data[0]))
+//     .catch(er => console.log(er)) 
 // };
 
-// function fnInt(){
-//  if(active === false){
-//     interval = setInterval(fnColor, 500);
-//     active = true;
-//  }
-// };
-// function fnStop(){
-//     clearInterval(interval)
-//     active = false;
-// };
+// function createBox(input) {
+//   result.innerHTML = `<ul>
+//   <li>Country name: ${input.name}</li>
+//   <li>Capital: ${input.capital}</li>
+//   <li>Main currency: ${input.currencies[0].name}</li>
+//   <li><img src="${input.flag}" alt="flag"></li>
+// </ul>`;
 
-//=============================02=======================================================
 
-/* 02
-  Напишите функцию getFormattedTime(time), которая 
-  получает time - кол-во миллисекунд и возвращает 
-  строку времени в формате xx:xx.x, 01:23.6, минуты:секунды.миллисекунды.
+// }
+
+//============================02============================
+/*
+  Написать функцию fetchUserData, которая использует
+  API_URL + текущее значение input для составления запроса.
   
-  Используйте возможности объекта Date для работы со временем.
+  Формат полного url таков:
+    https://api.github.com/users/имя-пользователя
+    
+  Документация по Git API:
+    https://developer.github.com/v3/
+    
+  С помощью fetch сделать запрос по составленому адресу. 
+  Обязательно обработать вариант с ошибкой запроса используя catch. 
   
-  Из миллисекунд нам интересен только разряд с сотнями,
-  то есть если сейчас 831мс то нам интересна исключительно цифра 8.
+  Результат запроса вывести в поле result в формате:
+    Avatar: аватартка 
+    Username: логин
+    Bio: описание профиля
+    Public repos: кол-во открытых репозиториев
+  
+  Все необходимые данные есть в ответе от API.
 */
 
-// function getFormattedTime(time) {
-//     let date = new Date(time);
+// const input = document.querySelector("input");
+// const form = document.querySelector(".search-form");
+// const result = document.querySelector(".result");
+// const API_URL = "https://api.github.com/users/Pecherskiy88";
 
-//     let sec = date.getSeconds();
-//     sec >= 10 ? sec : sec = `0${sec}`;
-   
+
+// form.addEventListener("submit", fetchUserData);
+
+// /*
+//   @param {FormEvent} evt
+// */
+
+// function fetchUserData(e){
+//   e.preventDefault();
+//   let name = input.value;
+//   const API_URL = `https://api.github.com/users/${name}`;
+//   fetch(API_URL)
+//   .then(response => response.json())
+//   .then(data => createBox(data)) 
+//   .catch(error => console.log(error))
+  
+
+//   function createBox(data) {
+//     result.innerHTML = `<ul>
+//     <li>Avatar: <img src="${data.avatar_url}" alt="avatar"></li>
+//     <li>Username: ${data.login}</li>
+//     <li>Bio: ${data.bio}</li>
+//     <li>Public repos: ${data.public_repos}</li>
+//   </ul>`
+//   }
+// }
+//============================03============================
+/*
+  Документация API: https://jsonplaceholder.typicode.com/
+
+  Просмотр всех пользователей: https://jsonplaceholder.typicode.com/users/ 
+
+  Написать функцию fetchUsers, которая посылает get запрос.
+  Результатом fetch будет массив объектов.
+  
+  В таблицу .user-table добавить строки для каждого пользователя.
+  Каждая строка состоит из 5-ти столбцов указанного формата.
+  Кол-во строк будет такое как и кол-во объектов пользователей в ответе.
+  
+    Имя | Почта | Город | Вебсайт | Компания
+    Имя | Почта | Город | Вебсайт | Компания
+    и так далее для каждого пользователя...
+*/
+
+// const form = document.querySelector(".search-form");
+// const userTable = document.querySelector(".user-table");
+
+// form.addEventListener("submit", fetchUsers);
+
+// /*
+//   @param {FormEvent} evt
+// */
+// function fetchUsers(e) {
+//   e.preventDefault();
+//   const url = 'https://jsonplaceholder.typicode.com/users/';
+
+//   fetch(url)
+//   .then(response => response.json())
+//   .then(data => createBox(data))
+//   .catch(error => console.log(error))
+  
+//   function createBox(data){
+//     console.log(data);
     
-
-//     let min = date.getMinutes();
-//     min >= 10 ? min : min = `0${min}`;
-
-//     let mil = Math.floor(date.getMilliseconds() / 100);
-//     return `${min}:${sec}:${mil}`;
-    
+//     let box = data.reduce((acc,elem)=> acc + `<tr>
+//     <td>${elem.name}</td>
+//     <td>${elem.email}</td>    
+//     <td>${elem.address.city}</td>
+//     <td>${elem.website}</td>
+//     <td>${elem.company.name}</td>
+//   </tr>`, '');
+//     userTable.innerHTML = box;
 //   }
   
-//   console.log(
-//     getFormattedTime(1523621052858)
-//   ); // 04:12.8
-  
-//   console.log(
-//     getFormattedTime(1523621161159)
-//   ); // 06:01.1
-  
-//   console.log(
-//     getFormattedTime(1523621244239)
-//   ); // 07:24.2
-   
-//=============================03=======================================================
-
-/* 
-  Напишите скрипт, реализующий базовый функционал
-  таймера, запуск отсчета времени и сброс счетчика
-  в исходное состояние.
-  
-  Используйте возможности объекта Date для работы со временем.
-  
-  Создайте функцию startTimer, которая будет запускать
-  отсчет времени с момента ее нажатия, она вызывается 
-  при клике на кнопку с классом js-timer-start.
-  
-  Создайте функцию stopTimer, которая будет останавливать
-  счетчик, она вызывается при клике на кнопку с классом js-timer-stop.
-  
-  Используйте вспомогательную функцию updateClockface 
-  которая обновляет значение счетчика в интерфейсе. 
-  Для составления строки времени в формате xx:xx.x, 
-  исользуйте функцию getFormattedTime из задания номер 3.
-  
-  Подсказка: так как нам интересны исключительно сотни миллисекунд,
-      нет смысла выполнять пересчет времени чаще чем каждые 100мс.
-*/
-
-const clockface = document.querySelector(".js-clockface");
-const startBtn = document.querySelector(".js-timer-start");
-const stopBtn = document.querySelector(".js-timer-stop");
-
-const timer = {
-  startTime: null,
-  deltaTime: null,
-  id: null
-};
-startBtn.addEventListener('click', fnInterval);
-function fnInterval() {
-    timer.startTime = Date.now();
-    setInterval(startTime, 100);
-}
-function startTime() {
- 
-    let nowTime = Date.now();
-
-    
-    
-    timer.deltaTime = nowTime - timer.startTime;
-    clockface.textContent = timer.deltaTime;
-
-
-}
-
-startTime();
-
-
-//=====================================================================
-/*
-* Вспомогательные функции
-*/
-
-/*
-* Обновляет поле счетчика новым значением при вызове
-* аргумент time это кол-во миллисекунд
-*/
-function updateClockface(elem, time) {
-  // Используйте функцию getFormattedTime из задания #1
-  // elem.textContent = getFormattedTime(time);
-}
-
-/*
-* Подсветка активной кнопки
-*/
-function setActiveBtn(target) {
-  if(target.classList.contains('active')) {
-    return;
-  }
-  
-  startBtn.classList.remove('active');
-  stopBtn.classList.remove('active');
-  
-  target.classList.add('active');
-}
-
-    
-
-//==================КОЗИЙ СПОСОБ!:)==========================
-// let minute = 0;
-// let second = 0;
-// let milisecond = 0;
-// let interval;
-// startBtn.addEventListener('click', fnInterval);
-// function fnInterval(){
-//     interval = setInterval(startTime, 0.5);
 // }
+//============================04============================
+/*
+  Документация API: https://jsonplaceholder.typicode.com/
 
-// function startTime() {
-//     if(milisecond < 1000){
-//         milisecond += 1;
-//         clockface.textContent = `${minute}:${second}.${milisecond}`
-//     }else if(milisecond === 1000){
-//         milisecond = 0;
-//         milisecond += 1;
-//     }
-
-//     if(milisecond === 1000 && second < 60){
-//         second += 1;
-//         clockface.textContent = `${minute}:${second}.${milisecond}`
-//     }else if(second === 60){
-//         second = 0;
-//         second += 1;
-//     }
-//     if(second === 60 && minute < 60){
-//         minute +=1;
-//         clockface.textContent = `${minute}:${second}.${milisecond}`
-//     }
+  Написать функцию getUserById, которая посылает запрос 
+  на получение информации о пользоватеьте с id (число) введенным в input. 
+  Не забывайте что значение input это строка.
  
+  Объект что придет в ответе используйте для вывода информации
+  о пользователе в элементе .result
   
+  Если пользователя с таким идентификатором в базе данных нет,
+  в элемент .result вывести строку "Ошибка! Пользователя с таким id не существует"
+*/
+
+// const input = document.querySelector("input");
+// const form = document.querySelector(".search-form");
+// const result = document.querySelector(".result");
+
+// form.addEventListener("submit", getUserById);
+
+// function getUserById(evt) {
+//   evt.preventDefault();
+//   let id = input.value
+//   const url = `https://jsonplaceholder.typicode.com/posts?userId=${id}`;
+//   fetch(url)
+//   .then(response => response.json())
+//   .then(data => createUserId(data))
+//   .catch(er => console.log(er))
+//   input.value = '';
+
+//   function createUserId(data){
+//     console.log(data);
     
+//     result.innerHTML = `<span>${data.id}${data.title}</span>`;
+    
+//   }
+
+
 // }
-
-
 
 
