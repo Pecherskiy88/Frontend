@@ -8,7 +8,57 @@
     <title>Task11</title>
 </head>
 <body>
+<!-- <div class="template-container"></div> -->
+
+    <!-- <template id='example-template'>
+            <ul class="products">
+              {{#each items}}
+                    <li>
+                      <span class="name">name: {{name}}</span>
+                      <span class="count">price: {{count}}</span>
+                    </li>
+                    {{/each}}
+                  </ul>
+    </template> -->
+
+    <!-- ==========================02=============================== -->
+    <!-- <div class="container"></div>
+
+    <template id='example-template'>
+        <div class="post">
+            <h2 class="title">{{title}}</h2>
+            <p class="text">{{text}}</p>
+            {{#if isFav}}
+            <span class="fav-icon">
+              <img src="https://image.flaticon.com/icons/svg/290/290413.svg" alt="">
+            </span>
+            {{/if}}
+          </div>
+    </template> -->
+    <!-- ==========================03=============================== -->
     
+    <div class="container">
+        <div class="row">
+          <form acrion="#" class="col s12">
+            <div class="row">
+              <div class="input-field col s12">
+                <input placeholder="First name" id="first_name" type="text" class="validate">
+                <label for="first_name"></label>
+              </div>
+              <div class="input-field col s12">
+                <input placeholder="Last Name" id="last_name" type="text" class="validate">
+                <label for="last_name"></label>
+              </div>
+              <div class="col s12">
+                <button class="btn waves-effect waves-light" id="submit-btn" type="submit" name="action">submit</button>
+              </div>
+            </div>
+          </form>
+          <ul class="results col s12">
+          </ul>
+        </div>
+      </div>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
     <script src="./task.js"></script>
 </body>
