@@ -1,26 +1,3 @@
-/*
-  Реализуйте форму фильтра товаров в каталоге и список отфильтрованных товаров.
-  Используйте шаблонизацию для создания карточек товаров.
-  
-  Есть массив объектов (дальше в задании), каждый из которых описывает 
-  ноутбук с определенными характеристиками.
-  
-  Поля объекта по которым необходимо производить фильтрацию: size, color, release_date.
-  Поля объекта для отображения в карточке: name, img, descr, color, price, release_date.
-    
-  Изначально есть форма с 3-мя секциями, состоящими из заголовка и группы 
-  чекбоксов (разметка дальше в задании). После того как пользователь выбрал 
-  какие либо чекбоксы и нажал кнопку Filter, необходимо собрать значения чекбоксов по группам. 
-  
-  🔔 Подсказка: составьте объект формата
-      const filter = { size: [], color: [], release_date: [] }
-    
-  После чего выберите из массива только те объекты, которые подходят 
-  под выбраные пользователем критерии и отрендерите список карточек товаров.
-  
-  🔔 Каждый раз когда пользователь фильтрует товары, список карточек товаров очищается, 
-      после чего в нем рендерятся новые карточки товаров, соответствующих текущим критериям фильтра.
-*/
 
 const laptops = [
     {
@@ -115,21 +92,52 @@ const laptops = [
     },
   ];
 
-  
+const form = document.querySelector('.js-form');
+const source = document.querySelector("#template").innerHTML.trim();
+const result = document.querySelector('.js-result'); 
+/**
+ * Generates HTML markup to be inserted into the DOM
+ * @param {array} arr an array of filtered objects to generate HTML
+ */
+function generateMarkup (arr){
+  let tempFunc = Handlebars.compile(source);
+  let mark = arr.reduce((acc,el)=> acc + tempFunc(el),"");
+  result.innerHTML = mark;
+}
+/**
+ * Filter of selected objects
+ * @param {object} event 
+ */
+function filterButtonHendler (event) {
+    event.preventDefault(); 
+    const arr = [...document.querySelectorAll('.js-form input:checked')]; 
+    const filter = {
+      size: [],
+      color: [],
+      release_date: []
+    }; 
+    filter.size = arr.filter(elem => elem.name === 'size').map(el=> el.value);
+    filter.color = arr.filter(elem => elem.name === 'color').map(el=> el.value);
+    filter.release_date = arr.filter(elem => elem.name === 'release_date').map(el=> el.value); 
+   
+    // const products = laptops.filter( el => (filter.size.length) ? filter.size.includes(String(el.size)) : true)
+    //                       .filter( el => (filter.color.length) ? filter.color.includes(el.color) : true)
+    //                       .filter( el => (filter.release_date.length) ? filter.release_date.includes(String(el.release_date)) : true); 
+   
+    const products = laptops.filter(el =>
+      (filter.size.includes(String(el.size)) || filter.size.length === 0) &&
+      (filter.color.includes(el.color) || filter.color.length === 0) &&
+      (filter.release_date.includes(String(el.release_date)) || filter.release_date.length === 0));
 
-  const form = document.querySelector('.js-form');
-
-  form.addEventListener('submit', sorting);
-
-  function sorting(e) {
-    e.preventDefault();
-    const arr = [...document.querySelectorAll('.js-form input:checked')];
-
-    const filter = { size: [], color: [], release_date: [] };
-    
-    filter.size = arr.filter(el => el.name === 'size').map(el => el.value);
-    filter.color = arr.filter(el => el.name === 'color').map(el => el.value);
-    filter.release_date = arr.filter(el => el.name === 'release_date').map(el => el.value);
-    console.log(filter);
-    
-  };
+    generateMarkup(products);   
+}
+/**
+ * Clear all checkboxes
+ */
+function clearButtonHandler(){
+  const arr = [...document.querySelectorAll('.js-form input:checked')]; 
+  arr.map(el=>el.checked = false);
+}
+form.addEventListener('submit', filterButtonHendler);
+form.addEventListener('reset', clearButtonHandler);
+window.addEventListener('DOMContentLoaded',generateMarkup(laptops) );
