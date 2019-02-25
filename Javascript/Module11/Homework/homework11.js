@@ -115,21 +115,46 @@ const laptops = [
     },
   ];
 
+
+  const form = document.querySelector('.js-form'); // достучались до формы отправки
+  const div = document.querySelector('.root'); // достучались до контейнера в который будет помещать карточки с товаром
   
 
-  const form = document.querySelector('.js-form');
+  form.addEventListener('submit', filterArr); // слушатель на кнопку Филтер
+  form.addEventListener('reset', clearFunc); // слушатель на кнопку  Reset
+  window.addEventListener('DOMContentLoaded', generateMarkup(laptops)); // при загрузке онка, запускаем функцию, которая строит DOM элементы(все, без фильтра)
 
-  form.addEventListener('submit', sorting);
-
-  function sorting(e) {
-    e.preventDefault();
-    const arr = [...document.querySelectorAll('.js-form input:checked')];
-
-    const filter = { size: [], color: [], release_date: [] };
+  function filterArr() { // создаем функцию, которая на основе выбранных характеристик, будет отфильтровывать наш массив с продуктами.
+    event.preventDefault();
+    const arr = [...document.querySelectorAll('.js-form input:checked')];// создаем массив, где собраны все инпуты, у которых значение поля checked - активно и спрэдаем.
+    console.log(arr);
     
-    filter.size = arr.filter(el => el.name === 'size').map(el => el.value);
+    const filter = { size: [], color: [], release_date: [] }; // Создаем объект с полями по которым будет фильтровать.
+    filter.size = arr.filter(el => el.name === 'size').map(el => el.value); // фильтруем массив который выше, по ключу size и записываем значение его в обьект filter
     filter.color = arr.filter(el => el.name === 'color').map(el => el.value);
     filter.release_date = arr.filter(el => el.name === 'release_date').map(el => el.value);
-    console.log(filter);
+  
+    const products = laptops.filter(el => // создаем переменную в которую запишем массив - результат фильтра нашего массива с товарами(laptops)
+      (filter.size.includes(String(el.size)) || filter.size.length === 0) && // Есть ли в нашем главном массиве с товарами поля size, color, date, значение которых содержит такое же значение, как и в одноименных массивах обьекта filter
+      (filter.color.includes(el.color) || filter.color.length === 0) && // либо эти поля не были выбраны
+      (filter.release_date.includes(String(el.release_date)) ||
+      filter.release_date.length === 0)
+    );
+    
+    generateMarkup(products);
     
   };
+  
+function generateMarkup(arr){ // Функция для работы с шаблонами и библиотекой Handlebars
+  const template = document.querySelector('#example-template').innerHTML.trim();
+  const templateFunc = Handlebars.compile(template);
+  const markup = arr.reduce((acc, elem) => acc + templateFunc(elem), "");
+  div.innerHTML = markup;
+};
+
+function clearFunc() {// Функция, которая очищает фильтр.
+  const arr = [...document.querySelectorAll('.js-form input:checked')];
+  arr.map(el => el.checked = false);
+  div.innerHTML = '';
+};
+
