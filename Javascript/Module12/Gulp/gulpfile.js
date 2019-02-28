@@ -71,3 +71,4 @@ gulp.task('build', function (callback) { // указываем в каком п�
         'watch',
         callback);
 });
+

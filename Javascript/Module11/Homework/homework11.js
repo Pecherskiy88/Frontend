@@ -157,4 +157,3 @@ function clearFunc() {// Функция, которая очищает филь�
   arr.map(el => el.checked = false);
   div.innerHTML = '';
 };
-

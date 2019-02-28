@@ -43,12 +43,6 @@ const inputAgeUpdate = document.querySelector('.form-update-age');
 
 
 
-
-
-
-
-
-
 btnUser.addEventListener('click', getAllUsers);
 form.addEventListener('submit', getUserById);
 formAdd.addEventListener('submit', addInputs);
