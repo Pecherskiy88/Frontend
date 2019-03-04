@@ -1,0 +1,17 @@
+.UserInfo{
+    display: flex;
+    padding: 1rem;
+}
+.UserInfo__img{
+    display: block;
+    width: 3rem;
+    height: 3rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+}
+.UserInfo__title{
+    font-size: 1.5rem;
+}
+.UserInfo__text {
+    font-size: 0.75rem;
+}
