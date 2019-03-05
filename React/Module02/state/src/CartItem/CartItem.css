@@ -1,0 +1,32 @@
+.item{
+    list-style: none;
+    border: 1px solid grey;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+    background-color: #fff;
+}
+
+.title{
+    padding: 1rem;
+    color: black;
+    font-weight: 500;
+    font-size: 1.2rem;
+
+}
+.price{
+    padding: 1rem;
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+
+
+}
+.delete {
+    cursor: pointer;
+    background-color: rgb(190, 122, 122);
+    padding: 6px;
+    width: 35%;
+    text-align: center;
+    margin: 3px auto;
+    border-radius: 5px;
+}
