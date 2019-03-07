@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+
 import Header from '../Header/Header';
-import Form from '../'
+import Form from '../Form/Form';
 import './Wrapper.css';
-import CartItem from '../CartItem/CartItem';
 
 class Wrapper extends Component {
     state = {
@@ -116,6 +115,9 @@ class Wrapper extends Component {
         ],
         cart: [],
         isCartShow: false,
+        text: '',
+        email: '',
+        password: '',
     }
     addToCart = (e) => {
         let title = e.target.dataset.name;
@@ -130,8 +132,6 @@ class Wrapper extends Component {
         }))
     }
     deleteItem = (e) => {
-
-        
         const title = e.target.dataset.name;
         const result = this.state.cart.filter(el => el.title !== title);
         this.setState(prev => ({
@@ -140,15 +140,37 @@ class Wrapper extends Component {
 
         
     }
+    inputChange = (e) => {
+        let value = e.target.value;
+        let name = e.target.name;
+        this.setState({
+            [name]: value,
+        })
+    }
+    formSubmit = (e) => {
+        e.preventDefault();
+        let obj = {
+            login: this.state.text,
+            email: this.state.email,
+            password: this.state.password,
+        }
+        this.setState({
+            text: '',
+            email: '',
+            password: '',
+        })
+        console.log(obj);
+        
+    }
+
 
     render() {
-        const {phones, cart, isCartShow} = this.state;
+        const {phones, cart, isCartShow, text, email, password} = this.state;
 
         return (
             <div>
                 <Header cart = {cart} toggleCart={this.toggleCart}/>
-                <Cart isCartShow = {isCartShow} toggleCart={this.toggleCart} cart={cart} deleteItem={this.deleteItem}/>
-                <PhoneList phones = {phones} addToCart={this.addToCart}/>
+                <Form text={text} inputChange={this.inputChange} email={email} password={password} formSubmit={this.formSubmit}/>
             </div>
         );
     }

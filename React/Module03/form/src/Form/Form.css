@@ -1,0 +1,14 @@
+form {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.text {
+    padding: 0.5rem;
+    font-style: 2rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+.btn {
+    margin-left: 0.5rem;
+}

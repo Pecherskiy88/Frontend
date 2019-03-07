@@ -1,0 +1,11 @@
+.Complete {
+    text-decoration: line-through;
+}
+.Items{
+    text-align: center;
+}
+.btns{
+    border: none;
+    margin: 3px;
+    padding: 3px 6px;
+}
