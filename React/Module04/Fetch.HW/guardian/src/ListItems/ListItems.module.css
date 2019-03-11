@@ -1,0 +1,9 @@
+.Items{
+    padding: 10px 0 10px 5px;
+    border: 1px solid grey;
+}
+
+.Title{
+    font-size: 16px;
+    cursor: pointer;
+}
