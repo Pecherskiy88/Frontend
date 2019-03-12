@@ -2,10 +2,10 @@ import React from 'react';
 import ListItem from '../ListItem/ListItem';
 import './List.css'
 
-const List = ({note, deleteTask, editTask, saveTask, updateText, inputUpdate, cancelTask, doneTask}) => {
+const List = ({note, deleteTask, editTask, saveTask, updateText, inputUpdate, cancelTask, doneTask, filterData, btn}) => {
     return (
        <ol className='List'>
-           {note.map(el => <ListItem note={el}
+           {filterData(note, btn).map(el => <ListItem note={el}
             deleteTask={deleteTask}
              editTask={editTask}
              updateText = {updateText}

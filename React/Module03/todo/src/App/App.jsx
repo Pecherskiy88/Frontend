@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Switch, Route} from 'react-router-dom';
 import Form from '../Form/Form';
 import List from '../List/List';
 import Header from '../Header/Header';
@@ -9,6 +10,7 @@ class App extends Component {
         text: '',
         arr: [],
         updateText: '',
+        btn: 'all',
     }
 
     inputChange = (e) => {
@@ -81,21 +83,47 @@ class App extends Component {
             arr: clickTask,
         })
     }
+    
+    writeCrit = (e) => {
+        console.log(e.target.dataset.name);
+        const click = e.target.dataset.name;
+        this.setState({
+            btn: click,
+        })
+        
+    }
+    filterData = (arr, crit) => {
+        if(crit === 'all'){
+            return arr
+        }else if(crit === 'complete'){
+            return arr.filter(el => el.done)
+        }else if(crit === 'incomlete') {
+            return arr.filter(el => !el.done)
+        }
+        
+        
+    }
+
 
     render() {
-        const {text, arr, updateText} = this.state;
+        const {text, arr, updateText, btn} = this.state;
         return (
             <div className='App'>
                 <Header/>
-                <Form formSubmit={this.formSubmit} inputChange={this.inputChange} text={text}/>
-                <List note={arr} 
-                deleteTask = {this.deleteTask} 
-                editTask={this.editTask}
-                updateText = {updateText}
-                inputUpdate = {this.inputUpdate}
-                saveTask = {this.saveTask}
-                cancelTask = {this.cancelTask}
-                doneTask = {this.doneTask}/>
+                <Form formSubmit={this.formSubmit} inputChange={this.inputChange} text={text} writeCrit = {this.writeCrit}/>
+                <Switch>
+                {/* <Route path='/user' render = {props => <User userData = {user} {...props}/>}/> доделать в роуты */}
+                    <List note={arr} 
+                    deleteTask = {this.deleteTask} 
+                    editTask={this.editTask}
+                    updateText = {updateText}
+                    inputUpdate = {this.inputUpdate}
+                    saveTask = {this.saveTask}
+                    cancelTask = {this.cancelTask}
+                    doneTask = {this.doneTask}
+                    filterData = {this.filterData}
+                    btn = {btn}/>
+                </Switch>
             </div>
         );
     }
