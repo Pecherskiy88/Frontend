@@ -45,7 +45,7 @@ class App extends Component {
     }
     editTask = (e) => {
         const id = e.target.dataset.id;
-        const updateItems = this.state.arr.map(el => (el.id === Number(id) ? {...el, edit: true} : el));
+        const updateItems = this.state.arr.map(el => (el.id === Number(id) ? {...el, edit: true} : {...el, edit: false}));
         const editItem = updateItems.find(el => el.id === Number(id)).task;
      
         this.setState({
@@ -97,7 +97,7 @@ class App extends Component {
             return arr
         }else if(crit === 'complete'){
             return arr.filter(el => el.done)
-        }else if(crit === 'incomlete') {
+        }else if(crit === 'incomplete') {
             return arr.filter(el => !el.done)
         }
         
@@ -112,7 +112,7 @@ class App extends Component {
                 <Header/>
                 <Form formSubmit={this.formSubmit} inputChange={this.inputChange} text={text} writeCrit = {this.writeCrit}/>
                 <Switch>
-                {/* <Route path='/user' render = {props => <User userData = {user} {...props}/>}/> доделать в роуты */}
+                <Route path='/all' render = {props => 
                     <List note={arr} 
                     deleteTask = {this.deleteTask} 
                     editTask={this.editTask}
@@ -122,7 +122,29 @@ class App extends Component {
                     cancelTask = {this.cancelTask}
                     doneTask = {this.doneTask}
                     filterData = {this.filterData}
-                    btn = {btn}/>
+                    btn = {btn}/>}/>
+                    <Route path='/complete' render = {props => 
+                    <List note={arr} 
+                    deleteTask = {this.deleteTask} 
+                    editTask={this.editTask}
+                    updateText = {updateText}
+                    inputUpdate = {this.inputUpdate}
+                    saveTask = {this.saveTask}
+                    cancelTask = {this.cancelTask}
+                    doneTask = {this.doneTask}
+                    filterData = {this.filterData}
+                    btn = {btn}/>}/>
+                    <Route path='/incomplete' render = {props => 
+                    <List note={arr} 
+                    deleteTask = {this.deleteTask} 
+                    editTask={this.editTask}
+                    updateText = {updateText}
+                    inputUpdate = {this.inputUpdate}
+                    saveTask = {this.saveTask}
+                    cancelTask = {this.cancelTask}
+                    doneTask = {this.doneTask}
+                    filterData = {this.filterData}
+                    btn = {btn}/>}/>
                 </Switch>
             </div>
         );
