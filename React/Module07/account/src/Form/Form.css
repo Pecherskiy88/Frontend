@@ -1,0 +1,9 @@
+.Form {
+   width: 50%;
+   margin: auto;
+}
+input{
+    display: block;
+    width: 40%;
+    margin: auto;
+}
