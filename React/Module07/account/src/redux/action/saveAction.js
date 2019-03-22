@@ -1,4 +1,8 @@
-export const save = (object) => ({
+export const save = (object, editFlag) => ({
     type: 'SAVE',
-    users: object,
+    replaceObj: object,
+    editFlag: editFlag,
+})
+export const getLocal = () => ({
+    type: 'LOADED',
 })

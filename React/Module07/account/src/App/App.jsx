@@ -3,14 +3,15 @@ import Form from '../Form/Form';
 import {openClose} from '../redux/action/modalAction';
 import {connect} from 'react-redux';
 import UserListItem from '../UserListItem/UserListItem';
-import {save} from '../redux/action/saveAction';
+import {save, getLocal} from '../redux/action/saveAction';
 
 import './App.css';
 
 class App extends Component {
     
     componentDidMount(){
-        save(this.props.arr)
+        save(this.props.arr);
+        this.props.getLocal();
     }
     render() {
         const {toggleModal, modal, arr} = this.props;
@@ -21,6 +22,7 @@ class App extends Component {
                 <button onClick={toggleModal}>New User</button>
                 <ol>
                    {arr.map(el => <UserListItem el={el}/>)} 
+                   
                 </ol>
             </div>
         );
@@ -36,7 +38,10 @@ function mapDispatchToProps (dispatch) {
     return {
         toggleModal: function () {
             dispatch(openClose())
-        }
+        },
+        getLocal: function () {
+            dispatch(getLocal())
+        },
     }
 }
 
@@ -48,5 +53,3 @@ function mapDispatchToProps (dispatch) {
 export default connect(mapStateToProps, mapDispatchToProps) (App);
 
 
-// в сейв экшене сделать еще один экшн, который будет вытягивать массив из локал сторедж. В сейв редьюсер сделать еще один кейс для него,
-// затем импортировать в APP добавить в диспач и вставить в компонентДидМаунт
