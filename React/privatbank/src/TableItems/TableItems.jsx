@@ -3,11 +3,12 @@ import './TableItems.css';
 
 const Table = ({ccy, buy, sale}) => {
     return (
-       
-                    <tr>
-                        <th>{ccy}</th>
-                        <th>{buy}</th>
-                        <th>{sale}</th>
+                    
+                    <tr className='rows'>
+                        
+                        <td>{ccy}</td>
+                        <td>{buy}</td>
+                        <td>{sale}</td>
                     </tr>
                     
     );

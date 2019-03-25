@@ -1,5 +1,5 @@
 import {createStore, applyMiddleware, compose} from 'redux';
-import store from '../redusers/finalReducers';
+import store from '../redusers/finalRedusers';
 import thunk from 'redux-thunk';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

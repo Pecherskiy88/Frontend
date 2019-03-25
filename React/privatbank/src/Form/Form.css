@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    width: 70%;
+    margin: auto;
+    flex-wrap: wrap;
+}
+.btn {
+    padding: 1rem 3.6rem;
+    cursor: pointer;
+}
+.input{
+    width: 98%;
+}
+.text{
+    margin: auto;
+}
